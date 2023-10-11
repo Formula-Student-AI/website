@@ -4,18 +4,18 @@ import Link from 'next/link'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-export default function Home({ blogs }) {
+export default function Home({ blogs: events }) {
   return (<div className={styles['container']}>
     <Head>
-      <title>Demo Blog</title>
+      <title>Formula Student AI</title>
     </Head>
     <h1 className={styles['header']}>Welcome to my blog</h1>
     <p className={styles['subtitle']}>This is a subtitle idk what to type here</p>
     <ul className={styles['blog-list']}>
-      {blogs.map(blog => (
-        <li key={blog.slug}>
-          <Link href={`/blog/${blog.slug}`}>
-            <a>{blog.date}: {blog.title}</a>
+      {events.map(event => (
+        <li key={event.slug}>
+          <Link href={`/event/${event.slug}`}>
+            <a>{event.date}: {event.title}</a>
           </Link>
         </li>
       ))}
@@ -25,11 +25,11 @@ export default function Home({ blogs }) {
 
 export async function getStaticProps() {
   // List of files in blgos folder
-  const filesInBlogs = fs.readdirSync('./content/blogs')
+  const filesInEvents = fs.readdirSync('./content/events')
 
   // Get the front matter and slug (the filename without .md) of all files
-  const blogs = filesInBlogs.map(filename => {
-    const file = fs.readFileSync(`./content/blogs/${filename}`, 'utf8')
+  const events = filesInEvents.map(filename => {
+    const file = fs.readFileSync(`./content/events/${filename}`, 'utf8')
 		const matterData = matter(file)
 		
     return {
@@ -40,7 +40,7 @@ export async function getStaticProps() {
 
   return {
     props: {
-      blogs
+      events
     }
   }
 
