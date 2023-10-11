@@ -2,6 +2,6 @@
   "parser": "@typescript-eslint/parser",
   "extends": "next/core-web-vitals",
   "rules": {
-    "react/no-unescaped-entities": [ ]
+    "react/no-unescaped-entities": 0
   }
 }
