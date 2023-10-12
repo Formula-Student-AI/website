@@ -12,17 +12,11 @@
   margin-bottom: 2rem;
 }
 
-.blog-list {
+.cardsContainer {
   text-align: start;
   margin: auto;
   width: max-content;
 }
 
-.blog-list li {
-  margin: 0.5rem 0;
-}
-
-.blog-list a {
-  color: rgb(4, 165, 165);
-  text-decoration: underline;
+.card {
 }

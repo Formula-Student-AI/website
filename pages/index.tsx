@@ -9,17 +9,17 @@ export default function Home({ events }) {
     <Head>
       <title>Formula Student AI</title>
     </Head>
-    <h1 className={styles['header']}>Welcome to my blog</h1>
-    <p className={styles['subtitle']}>This is a subtitle idk what to type here</p>
-    <ul className={styles['blog-list']}>
+    <h1 className={styles.header}>Welcome to Formula Student AI</h1>
+    <p className={styles.subtitle}>Coming Up</p>
+    <div className={styles.cardsContainer}>
       {events.map(event => (
-        <li key={event.slug}>
+        <div key={event.slug} className={styles.card}>
           <Link href={`/event/${event.slug}`}>
-            <a>{event.date}: {event.title}</a>
+            {event.title} - {event.date}
           </Link>
-        </li>
+        </div>
       ))}
-    </ul>
+    </div>
   </div>)
 }
 
