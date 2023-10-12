@@ -15,7 +15,7 @@ export default function Home({ events }) {
       {events.map(event => (
         <div key={event.slug} className={styles.card}>
           <Link href={`/event/${event.slug}`}>
-            {event.title} - {event.date}
+            <span>{event.title} - {event.date}</span>
           </Link>
         </div>
       ))}
