@@ -15,5 +15,7 @@ collections:
     fields: # The fields for each document, usually in front matter
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime", date_format: "dd/MM/yyyy", time_format: "HH:mm", format: "dd/MM/yyyy HH:mm"}
-      - {label: "Banner", name: "image", widget: "image"}
+      - {label: "Location", name: "location", widget: "string", required: false}
+      - {label: "Teams URL", name: "link", widget: "string", required: false}
+      - {label: "Banner", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
