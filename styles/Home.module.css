@@ -9,7 +9,7 @@
 }
 
 .subtitle {
-  margin-bottom: 2rem;
+  font-size: 1.5rem;
 }
 
 .cardsContainer {
@@ -19,4 +19,37 @@
 }
 
 .card {
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: 300ms ease all;
+}
+
+.card:hover {
+  transform: scale(1.025);
+}
+
+.card img {
+  border-radius: 5px;
+}
+
+.card * {
+  display: block;
+  text-align: center;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.noevents {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2rem;
+}
+
+.hr {
+  margin: 1rem 5rem;
 }
