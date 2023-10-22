@@ -28,5 +28,5 @@ collections:
     fields:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Date", name: "date", widget: "datetime", date_format: "dd/MM/yyyy", time_format: "HH:mm", format: "dd/MM/yyyy HH:mm"}
-      - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Link", name: "link", widget: "string", required: false}
+      - {label: "Body", name: "body", widget: "markdown"}

@@ -53,3 +53,32 @@
 .hr {
   margin: 1rem 5rem;
 }
+
+.events {
+  width: 70vw;
+  float: left;
+  text-align: center;
+}
+
+.posts {
+  width: 30vw;
+  float: right;
+  text-align: center;
+}
+
+.post {
+  width: calc(30vw - 4rem);
+  padding: 0 2rem;
+}
+
+.link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #445566;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background-color: #e3e3e3;
+  border-radius: 1rem;
+}
