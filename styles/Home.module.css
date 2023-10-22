@@ -15,11 +15,12 @@
 .cardsContainer {
   text-align: start;
   margin: auto;
-  width: max-content;
 }
 
 .card {
+  max-width: 33%;
   padding: 10px;
+  margin: 0 1rem;
   border-radius: 7px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
@@ -31,6 +32,9 @@
 }
 
 .card img {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 2/1;
   border-radius: 5px;
 }
 
@@ -48,6 +52,7 @@
   font-size: 1.5rem;
   font-weight: bold;
   margin: 2rem;
+  text-align: center;
 }
 
 .hr {
@@ -63,10 +68,10 @@
 .posts {
   float: right;
   text-align: center;
+  max-width: 30vw;
 }
 
 .post {
-  width: calc(30vw - 4rem);
   padding: 0 2rem;
 }
 
@@ -80,4 +85,25 @@
   padding: 0.5rem 1rem;
   background-color: #e3e3e3;
   border-radius: 1rem;
+}
+
+@media (max-width: 640px) {
+  .events {
+    width: 100%;
+    float: none;
+  }
+
+  .posts {
+    float: none;
+    max-width: none;
+  }
+
+  .post {
+    width: 100%;
+  }
+
+  .card {
+    min-width: calc(100% - 2rem);
+    margin: 1rem;
+  }
 }

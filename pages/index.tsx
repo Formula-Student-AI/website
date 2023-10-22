@@ -31,7 +31,7 @@ export default function Home({ eventsBeforeNow, eventsAfterNow, posts }) {
         {eventsBeforeNow.map(event => (
           <Link href={`/event/${event.slug}`} key={event.slug}>
             <div className={styles.card}>
-              <Image src={event.image} alt={event.title} width={400} height={200} />
+              <img src={event.image} alt={event.title} />
               <span className={styles.title}>{event.title}</span>
               <span className={styles.date}>{(new Date(event.date)).toLocaleString()}</span>
             </div>
@@ -46,8 +46,8 @@ export default function Home({ eventsBeforeNow, eventsAfterNow, posts }) {
           <div className={styles.post} key={post.slug}>
             <h1>{post.title}</h1>
             <div className={styles.date}>{(new Date(post.date)).toLocaleString()}</div>
-            {(post.link) ? <Link href={post.link}><a className={styles.link}>Link</a></Link> : null}
             <ReactMarkdown>{post.content}</ReactMarkdown>
+            {(post.link) ? <Link href={post.link}><a className={styles.link}>Go &rarr;</a></Link> : null}
           </div>
         ))}
       </div>
