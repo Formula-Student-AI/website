@@ -19,3 +19,14 @@ collections:
       - {label: "Teams URL", name: "link", widget: "string", required: false}
       - {label: "Banner", name: "image", widget: "image", required: false}
       - {label: "Body", name: "body", widget: "markdown"}
+
+  - name: "posts"
+    label: "Posts"
+    folder: "content/posts"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Date", name: "date", widget: "datetime", date_format: "dd/MM/yyyy", time_format: "HH:mm", format: "dd/MM/yyyy HH:mm"}
+      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Link", name: "link", widget: "string", required: false}
