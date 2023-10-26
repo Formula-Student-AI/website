@@ -87,6 +87,14 @@
   border-radius: 1rem;
 }
 
+.postTitle {
+  margin-bottom: 0;
+}
+
+.date {
+  opacity: 0.7;
+}
+
 @media (max-width: 640px) {
   .events {
     width: 100%;
