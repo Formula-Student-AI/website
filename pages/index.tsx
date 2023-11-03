@@ -25,7 +25,6 @@ export default function Home({ eventsBeforeNow, eventsAfterNow, posts }) {
           </Link>
         )) : <p className={styles.noevents}>No upcoming events</p>}
       </div>
-      <hr className={styles.hr} />
       <p className={styles.subtitle}>Past Events</p>
       <div className={styles.cardsContainer}>
         {eventsBeforeNow.map(event => (
@@ -109,7 +108,6 @@ export async function getStaticProps() {
     })
     .sort((a, b) => b.date - a.date);
 
-  console.log(posts)
 
   return {
     props: {
