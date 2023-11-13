@@ -45,7 +45,7 @@ export default function Home({ eventsBeforeNow, eventsAfterNow, posts }) {
             <h1 className={styles.postTitle}>{post.title}</h1>
             <div className={styles.date}>{(new Date(post.date)).toLocaleDateString()}</div>
             <p>{post.description}</p>
-            <Link href={post.slug}><a className={styles.link}>Read More &rarr;</a></Link>
+            <Link href={`/post/${post.slug}`}><a className={styles.link}>Read More &rarr;</a></Link>
           </div>
         ))}
       </div>
