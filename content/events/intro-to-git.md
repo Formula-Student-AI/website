@@ -1,5 +1,5 @@
 ---
-title: Introduction to Git
+title: Intro to Git
 date: 16/10/2023 18:00
 location: MVB 1.15 PC
 image: /uploads/introduction-to-git.png
