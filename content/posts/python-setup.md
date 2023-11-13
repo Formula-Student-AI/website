@@ -1,6 +1,7 @@
 ---
 title: Python Setup
 date: 08/11/2023 12:00
+description: How to set up python on your personal laptop
 ---
 **Installing Python:** [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
