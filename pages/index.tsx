@@ -40,24 +40,14 @@ export default function Home({ eventsBeforeNow, eventsAfterNow, posts }) {
     </div>
     <div className={styles.posts}>
       <div className={styles.cardsContainer}>
-        {posts.slice(0, 3).map(post => (
+        {posts.map(post => (
           <div className={styles.post} key={post.slug}>
             <h1 className={styles.postTitle}>{post.title}</h1>
             <div className={styles.date}>{(new Date(post.date)).toLocaleDateString()}</div>
-            <ReactMarkdown>{post.content}</ReactMarkdown>
-            {(post.link) ? <Link href={post.link}><a className={styles.link}>Go &rarr;</a></Link> : null}
+            <p>{post.description}</p>
+            <Link href={post.slug}><a className={styles.link}>Read More &rarr;</a></Link>
           </div>
         ))}
-        {posts.length > 3 ?
-          <>
-            <br />
-            <hr />
-            <br />
-            <Link href="/posts">
-              <a className={styles.link}>See all posts &rarr;</a>
-            </Link>
-          </>
-          : null}
       </div>
     </div>
   </div>)
