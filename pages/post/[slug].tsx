@@ -12,13 +12,13 @@ export default function Event({ frontmatter, markdown }) {
 			</Head>
 			<h1 className={styles['title']}>{frontmatter.title}</h1>
 			<div>{frontmatter.date}</div>
-            <a href={frontmatter.link} target="_blank" rel="noopener noreferrer">Link</a>
 			<hr />
 			<div className={styles['wrapper']}>
 				<ReactMarkdown>
 					{markdown}
 				</ReactMarkdown>
 			</div>
+            <a href={frontmatter.link} className={styles.link} target="_blank" rel="noopener noreferrer">Go &rarr;</a>
 		</div>
 	)
 }
