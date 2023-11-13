@@ -5,7 +5,6 @@ description: How to set up python on your personal laptop
 ---
 **Installing Python:** [https://www.python.org/downloads/](https://www.python.org/downloads/)
 
-
 **Windows Users:** Downloading the installer from the above link is probably the easiest way, but if you are used to Linux, you may instead wish to use the Windows Subsystem for Linux: [https://www.windowscentral.com/how-install-wsl2-windows-10](https://www.windowscentral.com/how-install-wsl2-windows-10). Installing Python on wsl is the same as installing it on ubuntu.
 
 **MacOS Users:** Some versions of MacOS already have Python installed. Run `python --version` in your terminal to see if **python 3** is installed. If not, follow this guide: [https://docs.python-guide.org/starting/install3/osx/](https://docs.python-guide.org/starting/install3/osx/)
@@ -15,7 +14,6 @@ description: How to set up python on your personal laptop
 ```
 $ sudo apt-get update
 $ sudo apt-get install python3.6
-
 ```
 
 If you are running a Red-Hat based distro (Fedora, CentOS, Rocky, RHEL):
