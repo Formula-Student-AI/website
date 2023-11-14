@@ -20,7 +20,15 @@ export default function Home({ eventsBeforeNow, eventsAfterNow, posts }) {
             <div className={styles.card}>
               <Image src={event.image} alt={event.title} width={400} height={200} />
               <span className={styles.title}>{event.title}</span>
-              <span className={styles.date}>{(new Date(event.date)).toLocaleString()}</span>
+              <span className={styles.date}>
+                {(new Date(event.date)).toLocaleString()}
+              </span>
+              {(event.location.length) &&
+                
+                <span className={styles.location}>
+                  {event.location}
+                </span>
+              }
             </div>
           </Link>
         )) : <p className={styles.noevents}>No upcoming events</p>}

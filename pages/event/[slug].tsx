@@ -12,8 +12,9 @@ export default function Event({ frontmatter, markdown }) {
 			</Head>
 			<h1 className={styles['title']}>{frontmatter.title}</h1>
 			<span>{frontmatter.date}</span>
+			<div className={styles.location}>{frontmatter.location}</div>
 			<hr />
-			<div className={styles['wrapper']}>
+			<div className={styles.wrapper}>
 				<ReactMarkdown>
 					{markdown}
 				</ReactMarkdown>
