@@ -12,6 +12,9 @@ export default function Event({ frontmatter, markdown }) {
 				<meta name="description" content={frontmatter.description} />
 				<meta property="og:type" content="website" />
 				<meta property="og:image" content={frontmatter.image} />
+				<meta property="og:title" content={frontmatter.title} />
+				<meta property="og:description" content={frontmatter.description} />
+				
 			</Head>
 			<img src={frontmatter.image} alt={frontmatter.title} className={styles.image} />
 			<div className={styles.center}>
