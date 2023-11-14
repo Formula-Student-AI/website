@@ -9,6 +9,9 @@ export default function Event({ frontmatter, markdown }) {
 		<div className={styles.container}>
 			<Head>
 				<title>Formula Student AI Event | {frontmatter.title}</title>
+				<meta name="description" content={frontmatter.description} />
+				<meta property="og:type" content="website" />
+				<meta property="og:image" content={frontmatter.image} />
 			</Head>
 			<img src={frontmatter.image} alt={frontmatter.title} className={styles.image} />
 			<div className={styles.center}>
