@@ -111,3 +111,8 @@
 .location {
   margin-top: 0.5rem;
 }
+
+.image {
+  width: 60rem;
+  height: auto;
+}

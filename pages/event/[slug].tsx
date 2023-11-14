@@ -6,13 +6,16 @@ import styles from '../../styles/Event.module.css'
 
 export default function Event({ frontmatter, markdown }) {
 	return (
-		<div className={styles['container']}>
+		<div className={styles.container}>
 			<Head>
 				<title>Formula Student AI Event | {frontmatter.title}</title>
 			</Head>
-			<h1 className={styles['title']}>{frontmatter.title}</h1>
-			<span>{frontmatter.date}</span>
-			<div className={styles.location}>{frontmatter.location}</div>
+			<img src={frontmatter.image} alt={frontmatter.title} className={styles.image} />
+			<div className={styles.center}>
+				<h1 className={styles['title']}>{frontmatter.title}</h1>
+				<span>{frontmatter.date}</span>
+				<div className={styles.location}>{frontmatter.location}</div>
+			</div>
 			<hr />
 			<div className={styles.wrapper}>
 				<ReactMarkdown>
