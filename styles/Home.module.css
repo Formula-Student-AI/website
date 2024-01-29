@@ -20,7 +20,7 @@
 .card {
   max-width: 33%;
   padding: 10px;
-  margin: 0 1rem;
+  margin: 1rem;
   border-radius: 7px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   cursor: pointer;
