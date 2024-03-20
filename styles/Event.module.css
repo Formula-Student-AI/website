@@ -94,6 +94,9 @@
 .wrapper a {
   color: var(--accent-color);
   text-decoration: underline;
+  display: inline-block;
+  width: 100%;
+  word-break: break-word;
 }
 
 .link {
