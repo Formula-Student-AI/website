@@ -119,3 +119,9 @@
   width: 100%;
   height: auto;
 }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 2rem;
+  }
+}
