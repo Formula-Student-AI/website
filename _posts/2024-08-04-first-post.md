@@ -1,6 +1,6 @@
 ---
 title: "Silverstone 2025"
-date: "2025-08-01"
+date: "2024-08-01"
 published: true
 author_email: "tom.lam.2024@bristol.ac.uk"
 excerpt: "A brief explanation of the Pythagorean theorem with examples."
