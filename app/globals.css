@@ -6,11 +6,15 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --university-red: rgb(171, 31, 45);
+  --logo-blue: rgb(22, 0, 54);
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-university-red: var(--university-red);
+  --color-logo-blue: var(--logo-blue);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }
