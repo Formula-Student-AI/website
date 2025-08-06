@@ -3,7 +3,7 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/postApi";
 import markdownToHtml from "@/lib/markdownToHtml";
 import Header from "@/app/ui/layout/Header";
-import Container from "@/app/components/posts/container";
+import Container from "@/app/components/common/container";
 import { PostHeader } from "@/app/components/posts/post-header";
 import { PostBody } from "@/app/components/posts/post-body";
 
@@ -23,7 +23,7 @@ export default async function Post(props: Params) {
     <main>
       <Container>
         <Header />
-        <article className="mb-32">
+        <article className="mt-16 mb-32">
           <PostHeader
             title={post.title}
             coverImage={post.coverImage}
