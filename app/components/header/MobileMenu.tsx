@@ -1,4 +1,5 @@
-import { X } from "lucide-react";
+import { IoClose } from "react-icons/io5";
+
 import NavLinks from "./NavLinks";
 
 type Props = {
@@ -28,7 +29,7 @@ export default function MobileMenu({ isOpen, onClose }: Props) {
         <div className="flex items-center justify-between h-16 px-4 border-b border-gray-200">
           <span className="text-lg font-semibold text-gray-900">Menu</span>
           <button onClick={onClose} aria-label="Close mobile menu">
-            <X
+            <IoClose
               className={`w-6 h-6 text-gray-800 transform transition-transform duration-500 ${
                 isOpen ? "rotate-180" : ""
               }`}

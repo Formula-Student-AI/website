@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { geistSans, geistMono } from "@/app/ui/fonts";
 import Header from "./ui/layout/Header";
 import "./globals.css";
+import Footer from "./ui/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Bristol Formula Student AI",
@@ -23,6 +24,7 @@ export default function RootLayout({
       >
         <Header />
         <main className="pt-16">{children}</main>
+        <Footer />
       </body>
     </html>
   );

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Menu } from "lucide-react";
+import { HiOutlineMenu } from "react-icons/hi";
 import { Logo } from "@/app/components/header/Logo";
 import NavLinks from "@/app/components/header/NavLinks";
 import MobileMenu from "@/app/components/header/MobileMenu";
@@ -29,7 +29,7 @@ export default function Header() {
             onClick={() => setIsOpen(true)}
             aria-label="Open mobile menu"
           >
-            <Menu className="w-6 h-6" />
+            <HiOutlineMenu className="w-6 h-6" />
           </button>
         </div>
       </header>

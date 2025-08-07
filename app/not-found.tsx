@@ -1,4 +1,4 @@
-import { ChevronLeft } from "lucide-react";
+import { FaChevronLeft } from "react-icons/fa";
 import Link from "next/link";
 
 export default function NotFound() {
@@ -13,7 +13,7 @@ export default function NotFound() {
           href="/"
           className="inline-block relative text-university-red hover:underline"
         >
-          <ChevronLeft className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 w-4 h-4 text-university-red" />
+          <FaChevronLeft className="absolute left-[-1.5rem] top-1/2 -translate-y-1/2 w-4 h-4 text-university-red" />
           Go back home
         </Link>
       </h3>
