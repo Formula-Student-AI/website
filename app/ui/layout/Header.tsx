@@ -12,11 +12,9 @@ export default function Header() {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 w-full z-50 bg-white/80 backdrop-blur-md border-b border-gray-200 transition-shadow duration-300 ${
-          isOpen ? "" : "shadow-sm"
-        }`}
+        className={`backdrop-blur-md fixed top-0 left-0 w-full z-50 bg-white/35 transition-shadow duration-300`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Logo />
 
           <nav className="hidden md:flex">
