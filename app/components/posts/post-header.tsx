@@ -1,6 +1,6 @@
 import Avatar from "./avatar";
 import CoverImage from "./cover-image";
-import DateFormatter from "./date-formatter";
+import DateFormatter from "../common/date-formatter";
 import { PostTitle } from "./post-title";
 import { TeamMember } from "@/interfaces/team";
 import { DEFAULT_AVATAR } from "@/lib/constants";

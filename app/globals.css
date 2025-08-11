@@ -2,6 +2,7 @@
 @plugin "@tailwindcss/typography";
 @import "katex/dist/katex.min.css"; /* math blocks */
 @import "highlight.js/styles/github-dark.css"; /* dark mode for code blocks */
+@plugin "tailwindcss-motion";
 
 :root {
   --background: #ffffff;

@@ -3,7 +3,7 @@
 import { Event } from "@/interfaces/event";
 import CoverImage from "../posts/cover-image";
 import Link from "next/link";
-import DateFormatter from "../posts/date-formatter";
+import DateFormatter from "../common/date-formatter";
 import Confetti from "react-confetti";
 import { useState, useEffect } from "react";
 
@@ -12,7 +12,6 @@ type Props = {
 };
 
 export function MajorEvent({ event }: Props) {
-  const [showConfetti, setShowConfetti] = useState(true);
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -28,18 +27,9 @@ export function MajorEvent({ event }: Props) {
       <h2 className="mb-8 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
         Major Event
       </h2>
-      <div
-        className="group relative rounded-2xl shadow-2xl shadow-logo-blue/45 hover:shadow-logo-blue/80 overflow-hidden transition-all duration-600"
-        onMouseEnter={() => setShowConfetti(false)}
-        onMouseLeave={() => setShowConfetti(true)}
-      >
+      <div className="group relative rounded-2xl shadow-2xl shadow-logo-blue/45 hover:shadow-logo-blue/80 overflow-hidden transition-all duration-600">
         <div className="absolute inset-0 pointer-events-none z-0">
-          {isMounted && (
-            <Confetti
-              recycle={true}
-              numberOfPieces={showConfetti ? 100 : 0}
-            />
-          )}
+          {isMounted && <Confetti recycle={true} numberOfPieces={100} />}
         </div>
 
         <div className="relative z-10 md:grid md:grid-cols-2 md:gap-x-8">

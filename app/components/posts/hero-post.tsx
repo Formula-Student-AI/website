@@ -2,7 +2,7 @@ import Avatar from "@/app/components/posts/avatar";
 import CoverImage from "./cover-image";
 import { TeamMember } from "@/interfaces/team";
 import Link from "next/link";
-import DateFormatter from "./date-formatter";
+import DateFormatter from "../common/date-formatter";
 import { DEFAULT_AVATAR } from "@/lib/constants";
 import { PostTitle } from "./post-title";
 

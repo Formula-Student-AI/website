@@ -3,6 +3,7 @@ import { Intro } from "../components/events/intro";
 import { MajorEvent } from "../components/events/major-event";
 import { getAllFutureEvents } from "@/lib/eventApi";
 import { Metadata } from "next";
+import { UpcomingEvents } from "../components/events/upcoming-events";
 
 export const metadata: Metadata = {
   title: "Events | Bristol Formula Student AI",
@@ -26,6 +27,7 @@ export default function Events() {
       <Container>
         <Intro />
         <MajorEvent event={majorEvent} />
+        <UpcomingEvents events={futureEvents} />
       </Container>
     </main>
   );
