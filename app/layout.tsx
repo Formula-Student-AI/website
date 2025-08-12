@@ -3,6 +3,7 @@ import { geistSans, geistMono } from "@/app/ui/fonts";
 import Header from "./ui/layout/Header";
 import "./globals.css";
 import Footer from "./ui/layout/Footer";
+import NextTopLoader from 'nextjs-toploader';
 
 export const metadata: Metadata = {
   title: "Bristol Formula Student AI",
@@ -22,6 +23,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.className} ${geistMono.className} antialiased`}
       >
+        <NextTopLoader color="#AB1F2D" showSpinner={false} height={2} />
         <Header />
         <main className="pt-16">{children}</main>
         <Footer />
