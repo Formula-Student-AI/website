@@ -8,7 +8,10 @@ date_end: 2026-03-16T18:00:00Z
 coverImage: "/favicon.png"
 location: "Engineering Building, Room 101"
 event_type: "hackathon"
-ticket_link: "https://example.com/register/spring-hackathon-2025"
+links:
+  ticket_link: "https://example.com/register/spring-hackathon-2025"
+  google_maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.115711638159!2d-2.6056979878141626!3d51.45603191433711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718dda3d615ea7%3A0xc8073eb4421ac0c4!2sMerchant%20Venturers%20Building!5e0!3m2!1sen!2shk!4v1754925144557!5m2!1sen!2shk"
+description: "A hackathon for Bristol FSAI members"
 cohost:
   - "Computer Science Society"
   - "Innovation Lab"

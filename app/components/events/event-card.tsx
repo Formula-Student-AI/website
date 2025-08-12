@@ -15,7 +15,7 @@ function getOrganizerDisplay(event: Event) {
   return "By Bristol Formula Student AI team";
 }
 
-function getEventTypeColor(eventType: string) {
+export function getEventTypeColor(eventType: string) {
   switch (eventType) {
     case "workshop":
       return "bg-blue-100 text-blue-800";
@@ -75,10 +75,10 @@ export function EventCard({ event }: Props) {
                 {getOrganizerDisplay(event)}
               </div>
 
-              {event.ticket_link ? (
+              {event.links?.ticket_link ? (
                 <div className="mt-4">
                   <Link
-                    href={event.ticket_link}
+                    href={event.links.ticket_link}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-block px-6 py-2 shadow-sm font-semibold rounded-lg hover:bg-university-red hover:text-white transition-colors duration-300"

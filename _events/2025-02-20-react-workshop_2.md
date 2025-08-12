@@ -8,7 +8,8 @@ date_end: 2025-11-20T20:30:00Z
 coverImage: "/favicon.png"
 location: "Computer Lab B, Second Floor"
 event_type: "workshop"
-ticket_link: "https://example.com/register/react-workshop"
+links:
+  ticket_link: "https://example.com/register/react-workshop"
 cohost:
   - "Web Development Club"
 ---

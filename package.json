@@ -9,11 +9,14 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
+    "clsx": "^2.1.1",
     "date-fns": "^4.1.0",
     "gray-matter": "^4.0.3",
     "highlight.js": "^11.11.1",
     "katex": "^0.16.22",
+    "lucide-react": "^0.539.0",
     "next": "15.4.5",
     "react": "19.1.0",
     "react-confetti": "^6.4.0",
@@ -27,7 +30,8 @@
     "remark-gfm": "^4.0.1",
     "remark-html": "^16.0.1",
     "remark-math": "^6.0.0",
-    "remark-rehype": "^11.1.2"
+    "remark-rehype": "^11.1.2",
+    "tailwind-merge": "^3.3.1"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

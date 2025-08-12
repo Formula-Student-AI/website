@@ -62,10 +62,10 @@ export function MajorEvent({ event }: Props) {
               {event.event_type}
             </div>
 
-            {event.ticket_link && (
+            {event.links?.ticket_link && (
               <div className="mb-4">
                 <Link
-                  href={event.ticket_link}
+                  href={event.links.ticket_link}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-block px-6 py-3 bg-university-red text-white font-semibold rounded-lg hover:bg-red-700 transition-colors duration-300"

@@ -11,7 +11,7 @@ export interface Event {
   coverImage: string;
   location: string;
   event_type: EventType;
-  ticket_link?: string;
+  links?: { [key: string]: string };
   cohost?: string[];
   sponsors?: string[];
   description?: string;
