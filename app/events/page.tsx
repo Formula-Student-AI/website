@@ -20,7 +20,6 @@ export const metadata: Metadata = {
 export default function Events() {
   const futureEvents = getAllFutureEvents();
   const majorEvent = futureEvents.find((event) => event.major_event);
-  console.log(futureEvents);
 
   return (
     <main>

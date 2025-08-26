@@ -11,6 +11,7 @@ export default function NavLinks({ onClick }: Props) {
         { href: "/posts", label: "Posts" },
         { href: "/events", label: "Events" },
         { href: "/team", label: "Team" },
+        { href: "/sponsors", label: "Sponsor us" },
       ].map(({ href, label }) => (
         <Link
           key={href}
