@@ -3,21 +3,23 @@
 import { useMemo, useState, useCallback } from "react";
 import TeamCard from "@/app/components/landing/teams/TeamCard";
 import Modal from "@/app/components/landing/Modal";
+import RevealWrapper from "@/app/components/common/RevealWrapper";
 
 type TeamItem = {
   id: string;
   title: string;
   summary: string;
   details: React.ReactNode;
-  dir: "up" | "down" | "left" | "right" | "scale";
+  icon?: React.ReactNode;
 };
+
+const directions = ["up", "down", "left", "right", "scale"] as const;
 
 const TEAMS: TeamItem[] = [
   {
     id: "perception",
     title: "Perception Team",
     summary: "Vision, lidar & fusion for robust situational awareness.",
-    dir: "up",
     details: (
       <div className="space-y-4">
         <p>
@@ -36,7 +38,6 @@ const TEAMS: TeamItem[] = [
     id: "planning",
     title: "Planning & Control",
     summary: "Trajectory generation and vehicle control.",
-    dir: "left",
     details: (
       <div className="space-y-4">
         <p>We turn perception into motion with safe, fast decisions.</p>
@@ -53,7 +54,6 @@ const TEAMS: TeamItem[] = [
     id: "systems",
     title: "Systems Integration",
     summary: "ROS graph, middleware, and CI/CD glue.",
-    dir: "right",
     details: (
       <div className="space-y-4">
         <p>We stitch everything together and keep it reliable.</p>
@@ -68,7 +68,6 @@ const TEAMS: TeamItem[] = [
     id: "hardware",
     title: "Hardware Team",
     summary: "Compute, sensors, power, mounting, reliability.",
-    dir: "down",
     details: (
       <div className="space-y-4">
         <p>We make sure the car’s hardware is race-ready and robust.</p>
@@ -85,7 +84,6 @@ const TEAMS: TeamItem[] = [
     id: "static",
     title: "Static Events",
     summary: "Business plan, design review, cost & manufacturing.",
-    dir: "scale",
     details: (
       <div className="space-y-4">
         <p>We win crucial points off-track through strong documentation.</p>
@@ -102,7 +100,6 @@ const TEAMS: TeamItem[] = [
     id: "webdev",
     title: "Web Dev Team",
     summary: "Web presence, dashboards, internal tooling.",
-    dir: "up",
     details: (
       <div className="space-y-4">
         <p>We build the apps which keep us fast and informed.</p>
@@ -119,10 +116,8 @@ const TEAMS: TeamItem[] = [
 
 export default function TeamsSection() {
   const [openId, setOpenId] = useState<string | null>(null);
-
   const openTeam = useCallback((id: string) => setOpenId(id), []);
   const close = useCallback(() => setOpenId(null), []);
-
   const active = useMemo(
     () => TEAMS.find((t) => t.id === openId) || null,
     [openId]
@@ -141,15 +136,19 @@ export default function TeamsSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
         {TEAMS.map((t, i) => (
-          <TeamCard
+          <RevealWrapper
             key={t.id}
-            id={t.id}
-            title={t.title}
-            summary={t.summary}
-            direction={t.dir}
+            direction={directions[i % directions.length]}
             delayMs={i * 80}
-            onOpen={openTeam}
-          />
+          >
+            <TeamCard
+              id={t.id}
+              title={t.title}
+              summary={t.summary}
+              icon={t.icon}
+              onOpen={openTeam}
+            />
+          </RevealWrapper>
         ))}
       </div>
 

@@ -2,6 +2,7 @@
 
 import HeroRevealSection from "@/app/components/landing/HeroRevealSection";
 import TeamsSection from "./teams/TeamsSection";
+import SponsorBar from "./sponsors/SponsorBar";
 
 export default function HeroContent() {
   return (
@@ -27,6 +28,8 @@ export default function HeroContent() {
       />
 
       <TeamsSection />
+
+      <SponsorBar />
     </main>
   );
 }
