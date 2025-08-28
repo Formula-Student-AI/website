@@ -1,10 +1,12 @@
 ---
 name: committee
 image: /subteams/committee-hero.jpg
+summary: "Strategy, sponsorships, operations, and comms that keep the team running."
 ---
 
-The **Committee** keeps the team running smoothly:
+The **Committee** keeps everything on track:
 
-- Strategy, partnerships, and sponsorships
-- Operations, logistics, budget, and comms
+- Sponsorships, partnerships, and budgeting
+- Operations, logistics, and timelines
 - Recruitment, onboarding, and community engagement
+- Internal comms, branding, and events

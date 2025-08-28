@@ -8,67 +8,71 @@ export default function TeamCard({
   summary,
   icon,
   onOpen,
+  className = "",
 }: {
   id: string;
   title: string;
   summary?: string;
   icon?: React.ReactNode;
   onOpen: (id: string) => void;
+  className?: string;
 }) {
   return (
-    <div
-      onClick={() => onOpen(id)}
-      role="button"
-      tabIndex={0}
-      onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && onOpen(id)}
-      aria-label={`${title} details`}
-      className="group relative cursor-pointer"
-    >
-      {/* Hover pop: scale background layer only (keeps text crisp) */}
-      <div
+    <div className={["group relative h-full", className].join(" ")}>
+      <button
+        onClick={() => onOpen(id)}
         className={[
-          "absolute inset-0 rounded-2xl border border-gray-200 bg-white shadow-sm",
-          "transition-transform duration-250 ease-out",
-          "group-hover:scale-[1.02] group-hover:shadow-lg",
+          "card-visual relative h-full w-full rounded-2xl border border-gray-200 bg-white shadow-sm",
+          "transition-[transform,box-shadow] duration-200 ease-out",
+          "hover:shadow-lg focus:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-university-red/60",
+          "transform-gpu will-change-transform",
         ].join(" ")}
-        aria-hidden="true"
-      />
-
-      {/* Content layer (never upscales past 1) */}
-      <div
-        className="relative z-10 p-6"
         style={{
-          transform: "scale(var(--textScale, 0.985))",
+          transform: "translateZ(0) scale(var(--scale,1))",
           transformOrigin: "center",
-          transition: "transform 200ms ease-out",
+          WebkitBackfaceVisibility: "hidden",
+          backfaceVisibility: "hidden",
         }}
+        aria-label={`${title} details`}
       >
-        <div className="flex items-start gap-3">
-          {icon ? <div className="mt-1 shrink-0">{icon}</div> : null}
-          <div className="text-left">
-            <h3 className="text-xl font-semibold text-gray-900">
-              <span
-                className={[
-                  "inline-block rounded-md px-1 -mx-1",
-                  "transition-colors duration-200",
-                  "hover:bg-university-red hover:text-white",
-                  "focus:outline-none focus-visible:bg-university-red focus-visible:text-white",
-                ].join(" ")}
-                tabIndex={-1}
-              >
-                {title}
-              </span>
-            </h3>
-            {summary ? <p className="mt-1 text-gray-600">{summary}</p> : null}
+        <div className="p-6 flex flex-col h-full">
+          <div className="flex items-start gap-3">
+            {icon ? <div className="mt-1 shrink-0">{icon}</div> : null}
+            <div className="text-left">
+              <h3 className="text-xl font-semibold text-gray-900">
+                <span
+                  className={[
+                    "inline-block -mx-1 rounded-md px-1",
+                    "transition-colors duration-200",
+                    "hover:bg-university-red hover:text-white",
+                  ].join(" ")}
+                >
+                  {title}
+                </span>
+              </h3>
+
+              {summary ? (
+                <p
+                  className="mt-2 text-gray-600 line-clamp-3"
+                  style={{
+                    display: "-webkit-box",
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: "vertical",
+                    overflow: "hidden",
+                  }}
+                >
+                  {summary}
+                </p>
+              ) : null}
+            </div>
           </div>
         </div>
-      </div>
+      </button>
 
-      {/* On hover/focus, lift text scale to 1 (never >1) */}
       <style jsx>{`
-        .group:hover .relative.z-10,
-        .group:focus-within .relative.z-10 {
-          --textScale: 1;
+        .group:hover .card-visual,
+        .group:focus-within .card-visual {
+          --scale: 1.015;
         }
       `}</style>
     </div>

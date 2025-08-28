@@ -1,10 +1,14 @@
 ---
 name: static
 image: /subteams/static-hero.jpg
+summary: "Design docs, presentations, costing, and manufacturability."
 ---
 
-**Static Events** maximize off-track points through strong documentation and presentation:
+The **Static Events** team wins crucial points off-track.
 
-- Design report & technical presentation preparation
-- Costing, manufacturability, and sustainability analysis
-- Storytelling, judging criteria strategy, and branding
+**Focus areas**
+
+- Design report, presentation, and storytelling
+- Costing, BOM accuracy, and manufacturability
+- Review workflows and judging criteria alignment
+- Visual assets and documentation quality

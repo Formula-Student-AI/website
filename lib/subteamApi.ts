@@ -2,33 +2,33 @@ import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
 import { SUBTEAM_DIR } from "./constants";
-import { SubTeamType, SUBTEAM_ORDER } from "@/interfaces/team";
+import { SubTeamType, SUBTEAM_ORDER, SubTeam } from "@/interfaces/team";
 
-export type SubTeamDoc = {
-  name: SubTeamType; 
-  image?: string; 
-  description: string;
-};
+let _cache: Map<SubTeamType, SubTeam> | null = null;
 
-let _cache: Map<SubTeamType, SubTeamDoc> | null = null;
+const isSubTeamType = (v: unknown): v is SubTeamType =>
+  typeof v === "string" &&
+  (SUBTEAM_ORDER as readonly string[]).includes(v as string);
 
-function isSubTeamType(v: unknown): v is SubTeamType {
-  return (
-    typeof v === "string" &&
-    (SUBTEAM_ORDER as readonly string[]).includes(v as string)
-  );
-}
-
-function listMarkdownFiles(dir: string): string[] {
-  return fs.existsSync(dir)
+const listMarkdownFiles = (dir: string): string[] =>
+  fs.existsSync(dir)
     ? fs.readdirSync(dir).filter((f) => f.toLowerCase().endsWith(".md"))
     : [];
+
+/** first-paragraph extractor for fallback */
+function firstParagraph(md: string): string {
+  const trimmed = (md || "").trim();
+  const para = trimmed.split(/\n\s*\n/)[0] || "";
+  return para
+    .replace(/^#.+\n/, "")
+    .replace(/\*\*?|__|`/g, "")
+    .trim();
 }
 
-export function loadSubTeamDocsMap(): Map<SubTeamType, SubTeamDoc> {
+export function loadSubTeamDocsMap(): Map<SubTeamType, SubTeam> {
   if (_cache) return _cache;
 
-  const map = new Map<SubTeamType, SubTeamDoc>();
+  const map = new Map<SubTeamType, SubTeam>();
   for (const file of listMarkdownFiles(SUBTEAM_DIR)) {
     const full = join(SUBTEAM_DIR, file);
     const raw = fs.readFileSync(full, "utf8");
@@ -37,9 +37,15 @@ export function loadSubTeamDocsMap(): Map<SubTeamType, SubTeamDoc> {
     const name = (data as Record<string, unknown>)?.name;
     if (!isSubTeamType(name)) continue;
 
+    const summary =
+      ((data as Record<string, unknown>)?.summary as string | undefined) ??
+      firstParagraph(content) ??
+      "";
+
     map.set(name, {
       name,
       image: (data as Record<string, unknown>)?.image as string | undefined,
+      summary: summary.trim(),
       description: (content ?? "").trim(),
     });
   }
@@ -50,4 +56,10 @@ export function loadSubTeamDocsMap(): Map<SubTeamType, SubTeamDoc> {
 
 export function resetSubTeamDocsCache() {
   _cache = null;
+}
+
+export function getAllSubTeams(): SubTeam[] {
+  return Array.from(loadSubTeamDocsMap().values()).sort(
+    (a, b) => SUBTEAM_ORDER.indexOf(a.name) - SUBTEAM_ORDER.indexOf(b.name)
+  );
 }

@@ -1,10 +1,19 @@
-"use client";
-
 import HeroRevealSection from "@/app/components/landing/HeroRevealSection";
 import TeamsSection from "./teams/TeamsSection";
 import SponsorBar from "./sponsors/SponsorBar";
+import { getAllSubTeams } from "@/lib/subteamApi";
+import markdownToHtml from "@/lib/markdownToHtml";
 
-export default function HeroContent() {
+export default async function HeroContent() {
+  const subteams = getAllSubTeams();
+
+  const subteamsWithHtml = await Promise.all(
+    subteams.map(async (t) => ({
+      ...t,
+      description: await markdownToHtml(t.description || ""),
+    }))
+  );
+
   return (
     <main className="bg-white">
       <HeroRevealSection
@@ -27,7 +36,7 @@ export default function HeroContent() {
         overlaySubtitle="Autonomous racing at the University of Bristol"
       />
 
-      <TeamsSection />
+      <TeamsSection subteams={subteamsWithHtml} />
 
       <SponsorBar />
     </main>

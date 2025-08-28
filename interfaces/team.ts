@@ -13,13 +13,13 @@ export interface TeamMember {
   is_committee: boolean;
   email: string;
   image?: string;
-  links?: { [key: string]: string };
+  links?: Record<string, string>;
 }
 
 export interface SubTeam {
   name: SubTeamType;
-  members: TeamMember[];
   image?: string;
+  summary: string;
   description: string;
 }
 
@@ -30,7 +30,7 @@ export interface Team {
   description: string;
 }
 
-/** Used for UI ordering */
+/** Ordering helpers */
 export const SUBTEAM_ORDER = [
   "committee",
   "perception",

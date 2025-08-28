@@ -1,10 +1,14 @@
 ---
 name: other
 image: /subteams/other-hero.jpg
+summary: "Cross-cutting tooling, dashboards, docs, and experiments."
 ---
 
-**Other & Cross-cutting** initiatives that don’t fit a single sub-team:
+The **Other** bucket covers cross-disciplinary initiatives.
 
-- Tooling, documentation, QA processes
-- Internal dashboards, data infrastructure
-- Experiments and special projects
+**Examples**
+
+- Telemetry dashboards and data hygiene
+- CI/CD, dev tooling, and observability
+- Internal docs, guides, and process automation
+- Exploratory projects and spikes

@@ -1,10 +1,14 @@
 ---
 name: planning_and_control
 image: /subteams/planning-control-hero.jpg
+summary: "Trajectory generation and vehicle control, from planners to MPC/PID."
 ---
 
-**Planning & Control** turns perception into motion. We design planners and controllers that are fast, safe, and reliable:
+**Planning & Control** turns perception into motion.
 
-- Racing line, global/local planning, behavior selection
-- Controllers (MPC/PID) with latency and constraint handling
-- Simulation-in-the-loop, telemetry analysis, and tuning
+**Focus areas**
+
+- Global/local path planning, overtaking logic
+- Trajectory optimization and constraint handling
+- Model Predictive Control (MPC) and PID controllers
+- Simulation-in-the-loop and track tuning

@@ -1,10 +1,14 @@
 ---
 name: perception
 image: /subteams/perception-hero.jpg
+summary: "Vision, LiDAR, and sensor fusion for robust environment understanding."
 ---
 
-The **Perception** team gives the car its senses. We build and maintain the vision and LiDAR stack for robust environment understanding:
+The **Perception** team gives the car its senses.
 
-- Object detection, tracking, and semantic segmentation
-- Multi-sensor fusion (cameras, LiDAR) and calibration
-- Dataset tooling, evaluation metrics, and real-time performance
+**Focus areas**
+
+- Camera and LiDAR calibration
+- Detection, tracking, and segmentation
+- Multi-sensor fusion and time sync
+- Dataset tooling, evaluation, and MLOps

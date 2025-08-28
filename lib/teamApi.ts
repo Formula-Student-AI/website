@@ -9,7 +9,7 @@ import {
   SubTeamType,
   compareSubTeams,
 } from "@/interfaces/team";
-import { loadSubTeamDocsMap, type SubTeamDoc } from "./subteamApi";
+import { loadSubTeamDocsMap } from "./subteamApi";
 
 export function getTeamFilenames(): string[] {
   return fs.existsSync(TEAM_DIR)
@@ -17,64 +17,39 @@ export function getTeamFilenames(): string[] {
     : [];
 }
 
-function groupMembersIntoSubTeams(
-  members: TeamMember[] | undefined
-): SubTeam[] {
-  if (!members?.length) return [];
-
-  const byName = new Map<SubTeamType, SubTeam>();
-  const ensure = (name: SubTeamType) => {
-    let bucket = byName.get(name);
-    if (!bucket) {
-      bucket = { name, members: [], description: "" };
-      byName.set(name, bucket);
-    }
-    return bucket;
-  };
-
-  for (const m of members) {
-    ensure(m.sub_team).members.push(m);
-  }
-
-  const out = Array.from(byName.values());
-  out.sort((a, b) => compareSubTeams(a.name, b.name));
-  return out;
+function getFlatMembersForYear(slug: string): TeamMember[] {
+  const real = slug.replace(/\.md$/i, "");
+  const full = join(TEAM_DIR, `${real}.md`);
+  const raw = fs.readFileSync(full, "utf8");
+  const { data } = matter(raw);
+  const members = (data as any).members as TeamMember[] | undefined;
+  return Array.isArray(members) ? members : [];
 }
 
-function enrichSubTeamsWithStatic(subTeams: SubTeam[]): SubTeam[] {
-  const docs = loadSubTeamDocsMap();
-  return subTeams.map((st) => {
-    const doc: SubTeamDoc | undefined = docs.get(st.name);
-    return {
-      ...st,
-      image: st.image ?? doc?.image,
-      description: st.description?.trim().length
-        ? st.description
-        : doc?.description ?? "",
-    };
-  });
-}
-
-/* -------- public API -------- */
 export function getTeamBySlug(slug: string): Team {
-  const realSlug = slug.replace(/\.md$/i, "");
-  const full = join(TEAM_DIR, `${realSlug}.md`);
+  const real = slug.replace(/\.md$/i, "");
+  const full = join(TEAM_DIR, `${real}.md`);
   const raw = fs.readFileSync(full, "utf8");
   const { data, content } = matter(raw);
 
-  const start_year = Number((data as Record<string, unknown>)?.start_year);
-  const end_year = Number((data as Record<string, unknown>)?.end_year);
-  const flatMembers = (data as Record<string, unknown>)?.members as
-    | TeamMember[]
-    | undefined;
+  const start_year = Number((data as any).start_year);
+  const end_year = Number((data as any).end_year);
 
-  const grouped = groupMembersIntoSubTeams(flatMembers);
-  const sub_teams = enrichSubTeamsWithStatic(grouped);
+  // Build subteam metas by enriching from static docs
+  const docs = loadSubTeamDocsMap();
+  const metas: SubTeam[] = Array.from(docs.values())
+    .sort((a, b) => compareSubTeams(a.name, b.name))
+    .map((d) => ({
+      name: d.name,
+      image: d.image,
+      summary: d.summary,
+      description: d.description,
+    }));
 
   return {
     start_year,
     end_year,
-    sub_teams,
+    sub_teams: metas,
     description: content ?? "",
   };
 }
@@ -85,9 +60,21 @@ export function getAllTeams(): Team[] {
     .sort((a, b) => b.start_year - a.start_year);
 }
 
+/** members by year slug (e.g. "2024-2025") **/
+export function getMembersByYear(slug: string): TeamMember[] {
+  return getFlatMembersForYear(slug);
+}
+
+/** members by year slug + subteam **/
+export function getMembersForSubTeam(
+  slug: string,
+  subteam: SubTeamType
+): TeamMember[] {
+  return getFlatMembersForYear(slug).filter((m) => m.sub_team === subteam);
+}
+
 export function getTeamMemberByEmail(email: string): TeamMember | undefined {
-  const team = getTeamBySlug(CURRENT_ACADEMIC_YEAR);
-  return team.sub_teams
-    .flatMap((st) => st.members)
-    .find((m) => m.email === email);
+  return getFlatMembersForYear(CURRENT_ACADEMIC_YEAR).find(
+    (m) => m.email === email
+  );
 }
