@@ -2,9 +2,32 @@
 
 import { useInView } from "@/app/hooks/useInView";
 import Container from "../common/container";
+import Image from "next/image";
 
 export function PackageDetails() {
   const { ref, visible } = useInView<HTMLElement>();
+
+  const images = [
+    {
+       src: "https://c2.staticflickr.com/9/8817/28973449265_07e3aa5d2e_b.jpg",
+       width: 320,
+       height: 174,
+       caption: "After Rain (Jeshu John - designerspics.com)",
+       alt: "After Rain landscape photography"
+    },
+    {
+       src: "https://c2.staticflickr.com/9/8356/28897120681_3b2c0f43e0_b.jpg",
+       width: 320,
+       height: 212,
+       alt: "Boats (Jeshu John - designerspics.com)",
+    },
+    {
+       src: "https://c4.staticflickr.com/9/8887/28897124891_98c4fdd82b_b.jpg",
+       width: 320,
+       height: 212,
+       alt: "Ocean landscape"
+    },
+ ];
 
   const packages = [
     {
@@ -53,6 +76,29 @@ export function PackageDetails() {
                 </p>
               </div>
             ))}
+          </div>
+
+          <div className="mt-12">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+              {images.map((image, index) => (
+                <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg">
+                  <div className="aspect-[4/3] relative">
+                    <Image
+                      src={image.src}
+                      alt={image.alt || `Gallery image ${index + 1}`}
+                      fill
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </div>
+                  {image.caption && (
+                    <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-2 text-sm">
+                      {image.caption}
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </Container>

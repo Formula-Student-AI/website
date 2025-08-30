@@ -4,8 +4,6 @@ import { getAllEvents, getEventBySlug } from "@/lib/eventApi";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { EventGrids } from "@/app/components/events/event-grids";
-import markdownToHtml from "@/lib/markdownToHtml";
-import { EventContent } from "@/app/components/events/event-content";
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -17,23 +15,12 @@ export default async function EventPage({ params }: Params) {
     notFound();
   }
 
-  const content = await markdownToHtml(event.content || "");
-
   return (
     <main>
       <Container>
         <article className="mt-16 mb-32 space-y-15">
           <EventTitle>{event.title}</EventTitle>
-          <EventGrids
-            event={event}
-            leftChildren={
-              content && (
-                <div className="mt-6">
-                  <EventContent content={content} />
-                </div>
-              )
-            }
-          />
+          <EventGrids event={event} />
         </article>
       </Container>
     </main>

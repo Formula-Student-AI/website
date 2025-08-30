@@ -20,8 +20,10 @@ async function LeftColumn({ event }: { event: Event }) {
   return (
     <div className="space-y-6 lg:col-span-6">
       <div className="overflow-hidden rounded-xl">
-        <div className="m-6 p-10 border-8 border-university-red border-dashed rounded-2xl">
-          <CoverImage title={event.title} src={event.coverImage} />
+        <div className="m-6 p-6 border-8 border-university-red border-dashed rounded-2xl">
+          <div className="p-10 border-8 border-logo-blue rounded-2xl">
+            <CoverImage title={event.title} src={event.coverImage} />
+          </div>
         </div>
         {(event.cohost?.length || event.sponsors?.length) && (
           <div className="p-4 dark:border-zinc-800">
@@ -52,7 +54,11 @@ function RightColumn({ event }: { event: Event }) {
 
   return (
     <div className="space-y-6 lg:col-span-4 lg:sticky lg:top-24 lg:h-fit">
-      <WhenCard dateLine={dateLine} timeRangeLine={timeRangeLine} />
+      <WhenCard
+        date={event.date}
+        dateLine={dateLine}
+        timeRangeLine={timeRangeLine}
+      />
       <WhereCard
         location={event.location}
         googleMaps={event.links?.google_maps ?? undefined}

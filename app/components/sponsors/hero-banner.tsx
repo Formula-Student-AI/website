@@ -33,7 +33,7 @@ export function HeroBanner() {
   }
 
   return (
-    <section className="h-[50vh] relative flex items-center justify-center group overflow-hidden">
+    <section className="h-[50vh] md:h-[70vh] relative flex items-center justify-center group overflow-hidden">
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/60 to-white z-10" />
       
       {/* Render all images with opacity transition */}
