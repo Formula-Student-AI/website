@@ -1,6 +1,6 @@
 ---
 name: planning_and_control
-image: /subteams/planning-control-hero.jpg
+image: /subteams/planning-control-hero.jpeg
 summary: "Trajectory generation and vehicle control, from planners to MPC/PID."
 ---
 

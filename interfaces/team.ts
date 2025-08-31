@@ -1,10 +1,10 @@
 export type SubTeamType =
   | "perception"
   | "planning_and_control"
-  | "slam"
-  | "static"
-  | "committee"
-  | "other";
+  | "hardware"
+  | "systems_integration"
+  | "static_events"
+  | "web_dev";
 
 export interface TeamMember {
   name: string;
@@ -32,12 +32,12 @@ export interface Team {
 
 /** Ordering helpers */
 export const SUBTEAM_ORDER = [
-  "committee",
+  "systems_integration",
   "perception",
   "planning_and_control",
-  "slam",
-  "static",
-  "other",
+  "hardware",
+  "static_events",
+  "web_dev",
 ] as const satisfies readonly SubTeamType[];
 
 export const SUBTEAM_ORDER_INDEX: Record<SubTeamType, number> =

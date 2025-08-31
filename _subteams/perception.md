@@ -1,6 +1,6 @@
 ---
 name: perception
-image: /subteams/perception-hero.jpg
+image: /subteams/perception-hero.jpeg
 summary: "Vision, LiDAR, and sensor fusion for robust environment understanding."
 ---
 

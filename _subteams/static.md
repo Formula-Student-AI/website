@@ -1,5 +1,5 @@
 ---
-name: static
+name: static_events
 image: /subteams/static-hero.jpg
 summary: "Design docs, presentations, costing, and manufacturability."
 ---
