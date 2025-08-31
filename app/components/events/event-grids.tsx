@@ -1,5 +1,5 @@
 import { Event } from "@/interfaces/event";
-import CoverImage from "@/app/components/posts/cover-image";
+import CoverImage from "@/app/components/common/cover-image";
 import { format, isSameDay } from "date-fns";
 import { DetailsCard } from "./details-card";
 import { CancelBanner } from "./cancel-banner";

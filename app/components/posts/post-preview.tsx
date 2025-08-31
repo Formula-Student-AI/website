@@ -1,7 +1,7 @@
 import { TeamMember } from "@/interfaces/team";
 import Link from "next/link";
 import Avatar from "./avatar";
-import CoverImage from "./cover-image";
+import CoverImage from "../common/cover-image";
 import DateFormatter from "../common/date-formatter";
 import { DEFAULT_AVATAR } from "@/lib/constants";
 
@@ -25,7 +25,7 @@ export function PostPreview({
   return (
     <div>
       <div className="mb-5">
-        <CoverImage slug={slug} title={title} src={coverImage} />
+        <CoverImage href={slug} title={title} src={coverImage} />
       </div>
       <h3 className="text-3xl mb-3 leading-snug font-semibold">
         <Link href={`/posts/${slug}`} className="hover:underline">

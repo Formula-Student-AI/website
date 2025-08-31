@@ -5,10 +5,10 @@ import Image from "next/image";
 type Props = {
   title: string;
   src: string;
-  slug?: string;
+  href?: string;
 };
 
-const CoverImage = ({ title, src, slug }: Props) => {
+const CoverImage = ({ title, src, href: slug }: Props) => {
   const image = (
     <Image
       src={src}
@@ -23,7 +23,7 @@ const CoverImage = ({ title, src, slug }: Props) => {
   return (
     <div className="sm:mx-0">
       {slug ? (
-        <Link href={`/posts/${slug}`} aria-label={title}>
+        <Link href={slug} aria-label={title}>
           {image}
         </Link>
       ) : (

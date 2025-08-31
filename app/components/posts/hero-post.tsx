@@ -1,5 +1,5 @@
 import Avatar from "@/app/components/posts/avatar";
-import CoverImage from "./cover-image";
+import CoverImage from "../common/cover-image";
 import { TeamMember } from "@/interfaces/team";
 import Link from "next/link";
 import DateFormatter from "../common/date-formatter";
@@ -30,7 +30,7 @@ export function HeroPost({
       </h2>
       <div className="group rounded-xl shadow-2xl shadow-logo-blue/45 overflow-hidden">
         <div className="p-8 mb-4 scale-95 group-hover:scale-100 transition-transform duration-600">
-          <CoverImage title={title} src={coverImage} slug={slug} />
+          <CoverImage title={title} src={coverImage} href={`posts/${slug}`} />
         </div>
         <div className="px-8 pb-8">
           <div className="md:grid md:grid-cols-2 md:gap-x-16 lg:gap-x-8">

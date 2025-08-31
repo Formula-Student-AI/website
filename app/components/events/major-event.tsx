@@ -1,7 +1,7 @@
 "use client";
 
 import { Event } from "@/interfaces/event";
-import CoverImage from "../posts/cover-image";
+import CoverImage from "../common/cover-image";
 import Link from "next/link";
 import DateFormatter from "../common/date-formatter";
 import Confetti from "react-confetti";
@@ -38,7 +38,7 @@ export function MajorEvent({ event }: Props) {
             <CoverImage
               title={event.title}
               src={event.coverImage}
-              slug={event.slug}
+              href={`/events/${event.slug}`}
             />
           </div>
 
