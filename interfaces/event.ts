@@ -3,6 +3,7 @@ export type EventType = "workshop" | "hackathon" | "social" | "other";
 export interface Event {
   published: boolean;
   slug: string;
+  major_event: boolean;
   cancelled: boolean;
   cancel_reason?: string | null;
   title: string;

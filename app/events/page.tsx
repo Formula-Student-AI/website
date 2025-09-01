@@ -4,6 +4,7 @@ import { MajorEvent } from "../components/events/major-event";
 import { getAllFutureEvents } from "@/lib/eventApi";
 import { Metadata } from "next";
 import { UpcomingEvents } from "../components/events/upcoming-events";
+import { Event } from "@/interfaces/event";
 
 export const metadata: Metadata = {
   title: "Events | Bristol Formula Student AI",
@@ -19,7 +20,7 @@ export const metadata: Metadata = {
 
 export default function Events() {
   const futureEvents = getAllFutureEvents();
-  const majorEvent = futureEvents.find((event) => event.major_event);
+  const majorEvent = futureEvents.find((event: Event) => event.major_event);
 
   return (
     <main>

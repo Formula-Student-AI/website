@@ -4,11 +4,12 @@ import SubTeamGrid from "@/app/components/team/SubTeamGrid";
 import MembersSectionClient from "@/app/components/team/members/MembersSectionClient";
 import type { TeamMember } from "@/interfaces/team";
 
-export default function TeamLandingPage({
-  searchParams,
-}: {
-  searchParams?: { year?: string };
-}) {
+type Params = {
+  searchParams?: Promise<{ year?: string }>;
+};
+
+export default async function TeamLandingPage(params: Params) {
+  const searchParams = await params.searchParams;
   const subteams = getAllSubTeams();
 
   const teams = getAllTeams();
