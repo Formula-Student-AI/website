@@ -8,15 +8,15 @@ const directions = ["up", "down", "left", "right", "scale"] as const;
 
 export default function SubTeamGrid({ subteams }: { subteams: SubTeam[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
       {subteams.map((st, i) => (
         <RevealWrapper
           key={st.name}
           direction={directions[i % directions.length]}
           delayMs={i * 60}
         >
-          <div className="h-full">
-            <SubTeamLinkCard subteam={st} className="h-full" />
+          <div>
+            <SubTeamLinkCard subteam={st} />
           </div>
         </RevealWrapper>
       ))}
@@ -34,11 +34,11 @@ function SubTeamLinkCard({
   const href = `/team/${subteam.name as SubTeamType}`;
 
   return (
-    <div className={["group relative h-full", className].join(" ")}>
+    <div className={["group relative", className].join(" ")}>
       <Link
         href={href}
         className={[
-          "card-visual relative block h-full w-full rounded-2xl border border-gray-200 bg-white shadow-sm",
+          "card-visual relative block w-full rounded-2xl border border-gray-200 bg-white shadow-sm",
           "transition-[transform,box-shadow] duration-200 ease-out",
           "hover:shadow-lg focus:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-university-red/60",
           "transform-gpu will-change-transform",
@@ -64,7 +64,7 @@ function SubTeamLinkCard({
         ) : null}
 
         {/* Content */}
-        <div className="p-6 flex flex-col h-full">
+        <div className="p-6 flex flex-col">
           <h3 className="text-xl font-semibold text-gray-900">
             {/* Title turns red only when *title* is hovered */}
             <span
