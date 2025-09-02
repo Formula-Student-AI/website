@@ -22,7 +22,7 @@ export function EventTimeline({ events }: Props) {
   }, {} as Record<string, Event[]>);
 
   return (
-    <div className="space-y-12">
+    <div className="space-y-12 max-w-6xl mx-auto">
       {Object.entries(groupedEvents).map(([dateString, dayEvents]) => {
         const date = new Date(dateString);
         return (

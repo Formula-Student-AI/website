@@ -41,9 +41,9 @@ export function EventCard({ event }: Props) {
 
       <div className="flex items-start">
         {/* Event content */}
-        <div className="flex-1 group-hover:transform group-hover:scale-[1.02] bg-gray-50 rounded-lg p-4 transition-all duration-300">
-          <div className="flex items-start justify-between">
-            <div className="flex-1 min-w-0">
+        <div className="flex md:w-2/3 group-hover:transform group-hover:scale-[1.02] bg-gray-50 rounded-lg p-4 transition-all duration-300">
+          <div className="flex items-start gap-4 w-full">
+            <div className="flex-1">
               <div className="flex items-center justify-between mb-2">
                 <Link
                   href={`/events/${event.slug}`}
@@ -94,19 +94,17 @@ export function EventCard({ event }: Props) {
             </div>
 
             {/* Event image/placeholder */}
-            <div className="flex-shrink-0 ml-4">
-              <div className="w-full h-full rounded-lg flex items-center justify-center overflow-hidden">
-                {event.coverImage && (
-                  <Image
-                    src={event.coverImage}
-                    alt={event.title}
-                    width={96}
-                    height={96}
-                    className="w-full h-full object-cover"
-                  />
-                )}
+            {event.coverImage && (
+              <div className="flex-shrink-0">
+                <Image
+                  src={event.coverImage}
+                  alt={event.title}
+                  width={96}
+                  height={96}
+                  className="w-full h-full object-cover rounded-lg"
+                />
               </div>
-            </div>
+            )}
           </div>
         </div>
       </div>
