@@ -67,7 +67,7 @@ export default function TeamsSection({ subteams }: { subteams: SubTeam[] }) {
       >
         <div
           className="prose prose-gray max-w-none"
-          dangerouslySetInnerHTML={{ __html: active?.description ?? "" }}
+          dangerouslySetInnerHTML={{ __html: active?.summary ?? "" }}
         />
       </Modal>
     </section>

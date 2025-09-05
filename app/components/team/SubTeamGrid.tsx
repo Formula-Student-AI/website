@@ -8,14 +8,15 @@ const directions = ["up", "down", "left", "right", "scale"] as const;
 
 export default function SubTeamGrid({ subteams }: { subteams: SubTeam[] }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-start">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 items-stretch">
       {subteams.map((st, i) => (
         <RevealWrapper
           key={st.name}
           direction={directions[i % directions.length]}
           delayMs={i * 60}
         >
-          <div>
+          {/* Make the child fill the grid row height */}
+          <div className="h-full">
             <SubTeamLinkCard subteam={st} />
           </div>
         </RevealWrapper>
@@ -34,11 +35,14 @@ function SubTeamLinkCard({
   const href = `/team/${subteam.name as SubTeamType}`;
 
   return (
-    <div className={["group relative", className].join(" ")}>
+    <div className={["group relative h-full", className].join(" ")}>
       <Link
         href={href}
         className={[
-          "card-visual relative block w-full rounded-2xl border border-gray-200 bg-white shadow-sm",
+          // Fill available height and use column layout
+          "card-visual relative block h-full rounded-2xl border border-gray-200 bg-white shadow-sm",
+          "flex flex-col",
+          // Motion/interaction polish
           "transition-[transform,box-shadow] duration-200 ease-out",
           "hover:shadow-lg focus:shadow-lg focus:outline-none focus-visible:ring-2 focus-visible:ring-university-red/60",
           "transform-gpu will-change-transform",
@@ -51,9 +55,9 @@ function SubTeamLinkCard({
         }}
         aria-label={`${pretty(subteam.name)} sub-team`}
       >
-        {/* Optional cover image */}
+        {/* Fixed-height cover to normalize top section */}
         {subteam.image ? (
-          <div className="h-36 w-full overflow-hidden rounded-t-2xl">
+          <div className="h-36 w-full overflow-hidden rounded-t-2xl shrink-0">
             <img
               src={subteam.image}
               alt=""
@@ -61,12 +65,15 @@ function SubTeamLinkCard({
               loading="lazy"
             />
           </div>
-        ) : null}
+        ) : (
+          // Keep height even if no image
+          <div className="h-36 w-full rounded-t-2xl bg-gray-50 shrink-0" />
+        )}
 
-        {/* Content */}
-        <div className="p-6 flex flex-col">
+        {/* Content fills the rest; CTA sticks to bottom */}
+        <div className="p-6 flex flex-col flex-1">
           <h3 className="text-xl font-semibold text-gray-900">
-            {/* Title turns red only when *title* is hovered */}
+            {/* Title tint only when the title itself is hovered */}
             <span
               className={[
                 "inline-block -mx-1 rounded-md px-1",
@@ -78,7 +85,7 @@ function SubTeamLinkCard({
             </span>
           </h3>
 
-          {/* Summary clamped to keep equal heights */}
+          {/* Summary: clamp to 3 lines AND reserve space so heights match */}
           {subteam.summary ? (
             <p
               className="mt-2 text-gray-600 line-clamp-3"
@@ -87,14 +94,19 @@ function SubTeamLinkCard({
                 WebkitLineClamp: 3,
                 WebkitBoxOrient: "vertical",
                 overflow: "hidden",
+                // Reserve ~3 lines: base text (16px) * leading (~1.5) * 3 ≈ 72px
+                minHeight: "72px",
               }}
             >
               {subteam.summary}
             </p>
-          ) : null}
+          ) : (
+            // If no summary, keep the same vertical space
+            <div aria-hidden className="mt-2" style={{ minHeight: 72 }} />
+          )}
 
-          {/* Optional subtle CTA text */}
-          <span className="mt-4 text-university-red font-medium">
+          {/* CTA anchored at the bottom */}
+          <span className="mt-auto text-university-red font-medium">
             View members →
           </span>
         </div>
@@ -103,7 +115,7 @@ function SubTeamLinkCard({
       <style jsx>{`
         .group:hover .card-visual,
         .group:focus-within .card-visual {
-          --scale: 1.015; /* whole card scales subtly (border, bg, shadow, text) */
+          --scale: 1.015;
         }
       `}</style>
     </div>

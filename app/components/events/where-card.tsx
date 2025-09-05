@@ -10,7 +10,7 @@ export function WhereCard({
       <div className="text-xs font-medium uppercase tracking-wide text-zinc-500 dark:text-zinc-400">
         Where
       </div>
-      <div className="mt-2 text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+      <div className="mt-2 text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
         {location}
       </div>
       {googleMaps && (

@@ -52,9 +52,16 @@ export default async function TeamLandingPage(params: Params) {
         </div>
       </section>
 
-      <section className="relative mx-auto max-w-6xl px-6 pb-20">
+      <section className="relative mx-auto max-w-6xl px-6 pb-16">
         <SubTeamGrid subteams={subteams} />
       </section>
+
+      {/* Separator */}
+      <div className="relative">
+        <div className="mx-auto max-w-6xl px-6">
+          <div className="my-6 h-px bg-gradient-to-r from-gray-100 via-gray-200 to-gray-100" />
+        </div>
+      </div>
 
       {/* Featured Members */}
       <MembersSectionClient

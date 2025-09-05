@@ -51,7 +51,7 @@ export function WhenCard({
         When
       </div>
       <div className="mt-2">
-        <div className="text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-100">
+        <div className="text-base md:text-lg font-semibold text-zinc-900 dark:text-zinc-400">
           {dateLine}
         </div>
         <div className="text-sm md:text-base text-zinc-600 dark:text-zinc-400">
