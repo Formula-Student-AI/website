@@ -88,7 +88,7 @@ function SubTeamLinkCard({
           {/* Summary: clamp to 3 lines AND reserve space so heights match */}
           {subteam.summary ? (
             <p
-              className="mt-2 text-gray-600 line-clamp-3"
+              className="my-2 text-gray-600 line-clamp-3"
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 3,
@@ -102,7 +102,7 @@ function SubTeamLinkCard({
             </p>
           ) : (
             // If no summary, keep the same vertical space
-            <div aria-hidden className="mt-2" style={{ minHeight: 72 }} />
+            <div aria-hidden className="my-2" style={{ minHeight: 72 }} />
           )}
 
           {/* CTA anchored at the bottom */}

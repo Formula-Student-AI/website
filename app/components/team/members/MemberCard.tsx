@@ -22,11 +22,11 @@ export default function MemberCard({
       onMouseEnter={(e) => e.currentTarget.style.setProperty("--s", "1.01")}
       onMouseLeave={(e) => e.currentTarget.style.setProperty("--s", "1")}
     >
-      <div className="overflow-hidden rounded-t-2xl">
+      <div className="overflow-hidden rounded-t-2xl flex justify-center items-center p-4">
         <img
           src={member.image || "/placeholder-member.jpg"}
           alt={member.name}
-          className="h-44 w-full object-cover"
+          className="h-44 w-44 object-cover rounded-full"
           loading="lazy"
         />
       </div>
