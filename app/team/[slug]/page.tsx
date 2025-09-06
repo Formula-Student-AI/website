@@ -6,8 +6,8 @@ import type { SubTeamType } from "@/interfaces/team";
 import SubTeamView from "@/app/components/team/SubTeamView";
 
 type PageProps = {
-  params: { slug: string };
-  searchParams: { year?: string };
+  params: Promise<{ slug: string }>;
+  searchParams: Promise<{ year?: string }>;
 };
 
 export async function generateStaticParams() {

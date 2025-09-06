@@ -8,6 +8,7 @@ import NextTopLoader from 'nextjs-toploader';
 export const metadata: Metadata = {
   title: "Bristol Formula Student AI",
   description: "Bristol Formula Student AI team's official website",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
   icons: {
     icon: "/favicon.png",
   },

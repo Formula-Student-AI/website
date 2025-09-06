@@ -46,7 +46,7 @@ export default function Modal({
         const t2 = setTimeout(() => {
           setMounted(false);
           setSnapTitle(undefined);
-          setSnapChildren(null as any);
+          setSnapChildren(null);
         }, overlayFadeMs);
         return () => clearTimeout(t2);
       }, dialogMs);

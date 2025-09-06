@@ -1,9 +1,6 @@
 import { Event } from "@/interfaces/event";
 import { format } from "date-fns";
 import DateFormatter from "../common/date-formatter";
-import Link from "next/link";
-import { IoLocationOutline } from "react-icons/io5";
-import Image from "next/image";
 import { EventCard } from "./event-card";
 
 type Props = {

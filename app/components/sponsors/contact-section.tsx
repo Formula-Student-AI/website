@@ -52,7 +52,7 @@ export function ContactSection() {
               <div className="space-y-8">
                 <div>
                   <p className="text-lg mb-4">
-                    If you're interested in working with us, please get in touch with us by emailing{" "}
+                    If you&apos;re interested in working with us, please get in touch with us by emailing{" "}
                     <a 
                       href="mailto:bristol.fsai@gmail.com" 
                       className="underline font-bold hover:text-yellow-200 transition-colors"

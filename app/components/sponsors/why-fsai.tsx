@@ -1,6 +1,5 @@
 "use client";
 
-import { useInView } from "@/app/hooks/useInView";
 import Container from "../common/container";
 
 export function WhyFsai() {
@@ -19,7 +18,7 @@ export function WhyFsai() {
 
               <p className="mb-6">
               Sponsorship is an excellent way to promote your brand and attract top talent. Bristol FSAI 
-              offers a unique platform to showcase your company's innovation as well as engaging with 
+              offers a unique platform to showcase your company&apos;s innovation as well as engaging with 
               the next generation of engineers.
               </p>
               

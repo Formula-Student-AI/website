@@ -5,7 +5,6 @@ import { useEffect } from "react";
 export function useLockBodyScroll(locked: boolean) {
   useEffect(() => {
     if (!locked) return;
-    const { overflow, paddingRight } = getComputedStyle(document.body);
     const prevOverflow = document.body.style.overflow;
     const prevPaddingRight = document.body.style.paddingRight;
 

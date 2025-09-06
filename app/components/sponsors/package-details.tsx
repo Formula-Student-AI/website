@@ -65,7 +65,7 @@ export function PackageDetails() {
           </div>
           
           <div className="space-y-12">
-            {packages.map((pkg, index) => (
+            {packages.map((pkg) => (
               <div key={pkg.title} className="space-y-4">
                 <h3 className="text-2xl md:text-3xl font-bold text-gray-900">
                   {pkg.title}

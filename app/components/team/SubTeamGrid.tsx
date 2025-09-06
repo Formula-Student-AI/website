@@ -3,6 +3,7 @@
 import Link from "next/link";
 import RevealWrapper from "@/app/components/common/RevealWrapper";
 import type { SubTeam, SubTeamType } from "@/interfaces/team";
+import Image from "next/image";
 
 const directions = ["up", "down", "left", "right", "scale"] as const;
 
@@ -58,9 +59,11 @@ function SubTeamLinkCard({
         {/* Fixed-height cover to normalize top section */}
         {subteam.image ? (
           <div className="h-36 w-full overflow-hidden rounded-t-2xl shrink-0">
-            <img
+            <Image
               src={subteam.image}
-              alt=""
+              alt={`${pretty(subteam.name)} sub-team image`}
+              width={500}
+              height={500}
               className="h-full w-full object-cover"
               loading="lazy"
             />

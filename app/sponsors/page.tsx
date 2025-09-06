@@ -1,5 +1,4 @@
 import { HeroBanner } from "../components/sponsors/hero-banner";
-import { SponsorsContent } from "../components/sponsors/sponsors-content";
 import { WhyFsai } from "../components/sponsors/why-fsai";
 import { SponsorshipTiers } from "../components/sponsors/sponsorship-tiers";
 import { PackageDetails } from "../components/sponsors/package-details";

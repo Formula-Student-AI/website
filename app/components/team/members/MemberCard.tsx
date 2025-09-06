@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import Image from "next/image";
 import type { TeamMember } from "@/interfaces/team";
 
 export default function MemberCard({
@@ -23,11 +24,13 @@ export default function MemberCard({
       onMouseLeave={(e) => e.currentTarget.style.setProperty("--s", "1")}
     >
       <div className="overflow-hidden rounded-t-2xl flex justify-center items-center p-4">
-        <img
+        <Image
           src={member.image || "/placeholder-member.jpg"}
           alt={member.name}
-          className="h-44 w-44 object-cover rounded-full"
+          width={400}
+          height={400}
           loading="lazy"
+          className="h-44 w-44 object-cover rounded-full"
         />
       </div>
 

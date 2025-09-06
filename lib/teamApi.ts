@@ -22,7 +22,7 @@ function getFlatMembersForYear(slug: string): TeamMember[] {
   const full = join(TEAM_DIR, `${real}.md`);
   const raw = fs.readFileSync(full, "utf8");
   const { data } = matter(raw);
-  const members = (data as any).members as TeamMember[] | undefined;
+  const members = (data as unknown as { members?: TeamMember[] }).members;
   return Array.isArray(members) ? members : [];
 }
 
@@ -32,8 +32,8 @@ export function getTeamBySlug(slug: string): Team {
   const raw = fs.readFileSync(full, "utf8");
   const { data, content } = matter(raw);
 
-  const start_year = Number((data as any).start_year);
-  const end_year = Number((data as any).end_year);
+  const start_year = Number((data as unknown as { start_year?: number }).start_year);
+  const end_year = Number((data as unknown as { end_year?: number }).end_year);
 
   // Build subteam metas by enriching from static docs
   const docs = loadSubTeamDocsMap();

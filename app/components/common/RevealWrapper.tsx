@@ -36,11 +36,11 @@ export default function RevealWrapper({
       className="opacity-0 will-change-[transform,opacity]"
       style={
         visible
-          ? {
+          ? ({
               animation: "category-reveal 480ms ease-out forwards",
               animationDelay: `${delayMs}ms`,
-              ["--reveal-from" as any]: revealFrom,
-            }
+              "--reveal-from": revealFrom,
+            } as React.CSSProperties)
           : { transform: revealFrom }
       }
     >

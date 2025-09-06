@@ -2,6 +2,7 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { useInView } from "@/app/hooks/useInView";
+import Image from "next/image";
 
 type Props = {
   image?: string;
@@ -59,12 +60,13 @@ export default function HeroReveal({
   return (
     <section ref={ref} className="relative min-h-[100svh] bg-black overflow-hidden">
       {image ? (
-        <img
+        <Image
           ref={imgRef}
           src={image}
           alt=""
-          decoding="async"
-          fetchPriority="high"
+          fill
+          priority
+          sizes="100vw"
           className={[
             "absolute inset-0 z-0 h-full w-full object-cover transform-gpu will-change-[transform,filter]",
             started ? "hero-animate-image" : "",

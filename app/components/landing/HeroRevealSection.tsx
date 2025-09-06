@@ -28,7 +28,7 @@ type Props = {
     const sectionRef = useRef<HTMLElement | null>(null);
     useSectionProgressVar(sectionRef);
   
-    const sectionStyle = { ["--p" as any]: 0 } as React.CSSProperties;
+    const sectionStyle = { "--p": 0 } as React.CSSProperties;
   
     return (
       <section

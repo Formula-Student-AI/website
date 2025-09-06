@@ -4,7 +4,6 @@ import { TeamMember } from "@/interfaces/team";
 import Link from "next/link";
 import DateFormatter from "../common/date-formatter";
 import { DEFAULT_AVATAR } from "@/lib/constants";
-import { PostTitle } from "./post-title";
 
 type Props = {
   title: string;
