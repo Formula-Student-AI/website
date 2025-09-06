@@ -5,6 +5,7 @@ import { getAllSubTeams } from "@/lib/subteamApi";
 import markdownToHtml from "@/lib/markdownToHtml";
 import ScrollSection from "./ScrollSection";
 import EventsPrev from "./EventsPrev";
+import PostsPrev from "./PostsPrev";
 
 export default async function HeroContent() {
   const subteams = getAllSubTeams();
@@ -45,6 +46,8 @@ export default async function HeroContent() {
       <ScrollSection />
 
       <EventsPrev />
+
+      <PostsPrev />
     </main>
   );
 }
