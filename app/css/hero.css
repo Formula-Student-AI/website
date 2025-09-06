@@ -1,0 +1,60 @@
+@layer utilities {
+    .hero-text-base {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    .hero-overlay-base {
+        opacity: 0;
+        background-image: linear-gradient(to bottom,
+                rgba(0, 0, 0, 0.70),
+                rgba(0, 0, 0, 0.55),
+                rgba(0, 0, 0, 0.70));
+    }
+
+    @keyframes hr-image {
+        from {
+            transform: scale(1);
+            filter: blur(0);
+        }
+
+        to {
+            transform: scale(1.02);
+            filter: blur(3px);
+        }
+    }
+
+    @keyframes hr-overlay {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes hr-text {
+        from {
+            opacity: 0;
+            transform: translateY(12px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .hero-animate-image {
+        animation: hr-image 900ms cubic-bezier(.22, .61, .36, 1) 220ms forwards;
+    }
+
+    .hero-animate-overlay {
+        animation: hr-overlay 765ms cubic-bezier(.22, .61, .36, 1) 340ms forwards;
+    }
+
+    .hero-animate-text {
+        animation: hr-text 765ms cubic-bezier(.22, .61, .36, 1) 440ms forwards;
+    }
+}

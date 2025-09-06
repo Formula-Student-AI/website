@@ -1,8 +1,6 @@
 "use client";
 
-import Image from "next/image";
-import { useRef } from "react";
-import { useSectionProgressVar } from "@/app/hooks/useSectionProgressVar";
+import HeroReveal from "@/app/components/common/HeroReveal";
 import { GalleryItem } from "../sponsors/GalleryItem";
 
 type Block = {
@@ -48,7 +46,7 @@ const blocks: Block[] = [
         imageAlt: "Real World AI Presentation",
         imageCaption: "Real World AI Presentation",
         heading: "Top 3",
-      }
+      },
     ],
   },
 ];
@@ -57,77 +55,39 @@ export default function ScrollSection() {
   return (
     <section className="-mb-10">
       {blocks.map((block, i) => (
-        <BlurScrollBlock key={i} {...block} />
-      ))}
-    </section>
-  );
-}
+        <HeroReveal key={i} image={block.imageSrc}>
+          <div className="max-w-4xl mx-auto text-white">
+            <h2 className="bg-university-red/60 inline-block rounded-lg px-4 py-2 text-3xl md:text-5xl font-bold">
+              {block.heading}
+            </h2>
+            <p className="mt-4 text-lg md:text-xl text-gray-200">
+              {block.text}
+            </p>
 
-function BlurScrollBlock({
-  imageSrc,
-  imageAlt = "Image",
-  heading,
-  text,
-  content,
-}: Block) {
-  const sectionRef = useRef<HTMLElement | null>(null);
-  useSectionProgressVar(sectionRef);
-
-  return (
-    <section
-      ref={sectionRef}
-      className="relative h-[200vh]"
-      style={{ ["--p" as any]: 0 }}
-    >
-      <div className="sticky top-0 h-screen w-full overflow-hidden">
-        <div className="relative h-full w-full">
-          <Image
-            src={imageSrc}
-            alt={imageAlt}
-            fill
-            className="object-cover"
-            sizes="100vw"
-            priority
-          />
-
-          {/* Background blur and dim */}
-          <div
-            className="absolute inset-0 transition-all duration-500"
-            style={{
-              backdropFilter:
-                "blur(calc(clamp(0, (var(--p) - 0.05) * 15, 1) * 12px))",
-              backgroundColor:
-                "rgba(0,0,0,calc(clamp(0, (var(--p) - 0.05) * 2, 0.3)))",
-            }}
-          />
-
-          {/* Text content */}
-          <div
-            className="absolute max-w-4xl mx-auto inset-0 flex flex-col justify-center items-center text-center px-6 text-white transition-all duration-500"
-            style={{
-              opacity: `clamp(0, calc((var(--p) - 0.08) * 5), 1)`,
-              transform: `translateY(calc((1 - var(--p)) * 20px))`,
-            }}
-          >
-            <h2 className="bg-university-red/50 p-4 rounded-lg text-3xl md:text-5xl font-bold mb-4">{heading}</h2>
-            <p className="text-lg md:text-xl text-white/90 mb-16">{text}</p>
-
-            {/* Cards content */}
-            {content && (
-              <div className="w-full flex flex-col md:flex-row justify-center items-stretch gap-10 text-center px-6 text-white transition-all duration-500">
-                {content.map((item, index) => (
-                  <div key={index} className="flex-1 max-w-sm">
-                    {item.heading && <h3 className="text-2xl md:text-3xl font-bold mb-4">{item.heading}</h3>}
-                    {item.imageSrc && <GalleryItem src={item.imageSrc} alt={item.imageAlt} caption={item.imageCaption} index={index} />}
+            {block.content?.length ? (
+              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+                {block.content.map((item, idx) => (
+                  <div key={idx} className="w-full max-w-sm text-center">
+                    {item.heading ? (
+                      <h3 className="text-2xl md:text-3xl font-bold mb-4">
+                        {item.heading}
+                      </h3>
+                    ) : null}
+                    {item.imageSrc ? (
+                      <GalleryItem
+                        src={item.imageSrc}
+                        alt={item.imageAlt}
+                        caption={item.imageCaption}
+                        index={idx}
+                      />
+                    ) : null}
                   </div>
                 ))}
               </div>
-            )}
+            ) : null}
           </div>
-
-
-        </div>
-      </div>
+        </HeroReveal>
+      ))}
     </section>
   );
 }

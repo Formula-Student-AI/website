@@ -1,7 +1,7 @@
 "use client";
 
 import { useRef } from "react";
-import { useSectionProgressVar } from "@/app/hooks/useOnSectionScroll";
+import { useSectionProgressVar } from "@/app/hooks/useSectionProgressVar";
 import ExpandingImageBox from "@/app/components/landing/ExpandingImageBox";
 import IntroHeading from "@/app/components/landing/IntroHeading";
 import CenteredOverlay from "@/app/components/landing/CenteredOverlay";

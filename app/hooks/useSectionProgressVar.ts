@@ -3,9 +3,7 @@
 import { useEffect } from "react";
 import { clamp, easeOutCubic } from "@/lib/anim";
 
-export function useSectionProgressVar(
-  sectionRef: React.RefObject<HTMLElement | null>
-) {
+export function useSectionProgressVar(sectionRef: React.RefObject<HTMLElement | null>) {
   useEffect(() => {
     let ticking = false;
 
@@ -15,10 +13,7 @@ export function useSectionProgressVar(
 
       requestAnimationFrame(() => {
         const el = sectionRef.current;
-        if (!el) {
-          ticking = false;
-          return;
-        }
+        if (!el) { ticking = false; return; }
 
         const rect = el.getBoundingClientRect();
         const viewportH = window.innerHeight;

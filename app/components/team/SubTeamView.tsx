@@ -1,9 +1,9 @@
 "use client";
 
-import React, { useMemo, useRef } from "react";
+import React, { useMemo } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { TeamMember, SubTeamType } from "@/interfaces/team";
-import HeroReveal from "@/app/components/team/HeroReveal";
+import HeroReveal from "@/app/components/common/HeroReveal";
 import TeamMarkdown from "@/app/components/team/TeamMarkdown";
 import MembersSection from "@/app/components/team/members/MembersSection";
 
@@ -36,7 +36,19 @@ export default function SubTeamView({
 
   return (
     <main className="bg-white">
-      <HeroReveal image={bannerImage} title={title} summary={summary} />
+      <HeroReveal image={bannerImage}>
+        <div className="max-w-3xl text-white">
+          <p className="text-xs md:text-sm uppercase tracking-widest text-university-red font-semibold">
+            Team Information
+          </p>
+          <h1 className="mt-3 text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow">
+            {title}
+          </h1>
+          {summary ? (
+            <p className="mt-4 text-base md:text-lg text-gray-200">{summary}</p>
+          ) : null}
+        </div>
+      </HeroReveal>
 
       <TeamMarkdown html={descriptionHtml} />
 
