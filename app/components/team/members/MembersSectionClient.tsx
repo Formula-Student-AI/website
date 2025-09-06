@@ -1,33 +1,26 @@
 "use client";
 
-import { useRouter, useSearchParams } from "next/navigation";
 import MembersSection from "@/app/components/team/members/MembersSection";
 import type { TeamMember } from "@/interfaces/team";
+import { useState } from "react";
 
 export default function MembersSectionClient({
-  members,
-  selectedYear,
+  allMembersByYear,
+  defaultYear,
   yearOptions,
 }: {
-  members: TeamMember[];
-  selectedYear: string;
+  allMembersByYear: Record<string, TeamMember[]>;
+  defaultYear: string;
   yearOptions: string[];
 }) {
-  const router = useRouter();
-  const sp = useSearchParams();
-
-  const onYearChange = (year: string) => {
-    const qs = new URLSearchParams(sp.toString());
-    qs.set("year", year);
-    router.push(`?${qs.toString()}`);
-  };
+  const [year, setYear] = useState(defaultYear);
 
   return (
     <MembersSection
-      members={members}
-      selectedYear={selectedYear}
+      members={allMembersByYear[year]}
+      selectedYear={year}
       yearOptions={yearOptions}
-      onYearChange={onYearChange}
+      onYearChange={setYear}
     />
   );
 }

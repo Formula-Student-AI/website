@@ -4,15 +4,10 @@ import SubTeamGrid from "@/app/components/team/SubTeamGrid";
 import MembersSectionClient from "@/app/components/team/members/MembersSectionClient";
 import type { TeamMember } from "@/interfaces/team";
 
-type Params = {
-  searchParams?: Promise<{ year?: string }>;
-};
-
-export default async function TeamLandingPage(params: Params) {
-  const searchParams = await params.searchParams;
+export default async function TeamLandingPage() {
   const subteams = getAllSubTeams();
-
   const teams = getAllTeams();
+
   const yearOptions = teams.map((t) => `${t.start_year}-${t.end_year}`);
   if (yearOptions.length === 0) {
     return (
@@ -26,13 +21,10 @@ export default async function TeamLandingPage(params: Params) {
   }
 
   const latestYear = yearOptions[0];
-  const selectedYear =
-    searchParams?.year && yearOptions.includes(searchParams.year)
-      ? searchParams.year
-      : latestYear;
-
-  const allMembers = getMembersByYear(selectedYear);
-  const featured: TeamMember[] = allMembers.slice(0, 12);
+  // 👇 Build-time: read every year's members once
+  const allMembersByYear: Record<string, TeamMember[]> = Object.fromEntries(
+    yearOptions.map((year) => [year, getMembersByYear(year)]),
+  );
 
   return (
     <main className="bg-white">
@@ -65,8 +57,8 @@ export default async function TeamLandingPage(params: Params) {
 
       {/* Featured Members */}
       <MembersSectionClient
-        members={featured}
-        selectedYear={selectedYear}
+        allMembersByYear={allMembersByYear}
+        defaultYear={latestYear}
         yearOptions={yearOptions}
       />
     </main>
