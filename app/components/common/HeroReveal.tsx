@@ -57,10 +57,7 @@ export default function HeroReveal({
   const started = visible && imgReady;
 
   return (
-    <section
-      ref={ref}
-      className="relative h-[100svh] min-h-screen overflow-hidden isolate bg-black"
-    >
+    <section ref={ref} className="relative min-h-[100svh] bg-black overflow-hidden">
       {image ? (
         <img
           ref={imgRef}
@@ -84,8 +81,10 @@ export default function HeroReveal({
             className="absolute inset-0 z-10 pointer-events-none hero-overlay-base hero-animate-overlay"
             aria-hidden="true"
           />
-          <div className="absolute inset-0 z-20 flex items-center justify-center px-6 text-center hero-text-base hero-animate-text">
-            <div className="max-w-3xl">{children}</div>
+          <div className="relative z-20 px-6 text-center hero-text-base hero-animate-text">
+            <div className="mx-auto max-w-3xl min-h-[100svh] flex items-center justify-center py-12 md:py-16 lg:py-24">
+              {children}
+            </div>
           </div>
         </>
       )}
