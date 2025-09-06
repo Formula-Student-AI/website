@@ -9,21 +9,6 @@ const SPONSORS: Sponsor[] = [
     logo: "/sponsors/uob-logo.svg",
     url: "https://www.bristol.ac.uk/",
   },
-  {
-    name: "University of Bristol",
-    logo: "/sponsors/uob-logo.svg",
-    url: "https://www.bristol.ac.uk/",
-  },
-  {
-    name: "University of Bristol",
-    logo: "/sponsors/uob-logo.svg",
-    url: "https://www.bristol.ac.uk/",
-  },
-  {
-    name: "University of Bristol",
-    logo: "/sponsors/uob-logo.svg",
-    url: "https://www.bristol.ac.uk/",
-  },
 ];
 
 export default function SponsorBar() {

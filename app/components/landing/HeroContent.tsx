@@ -4,6 +4,7 @@ import SponsorBar from "./sponsors/SponsorBar";
 import { getAllSubTeams } from "@/lib/subteamApi";
 import markdownToHtml from "@/lib/markdownToHtml";
 import ScrollSection from "./ScrollSection";
+import EventsPrev from "./EventsPrev";
 
 export default async function HeroContent() {
   const subteams = getAllSubTeams();
@@ -42,6 +43,8 @@ export default async function HeroContent() {
       <SponsorBar />
 
       <ScrollSection />
+
+      <EventsPrev />
     </main>
   );
 }

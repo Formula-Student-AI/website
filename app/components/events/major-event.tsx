@@ -27,6 +27,7 @@ export function MajorEvent({ event }: Props) {
       <h2 className="mb-8 text-5xl md:text-7xl font-bold tracking-tighter leading-tight">
         Major Event
       </h2>
+
       <div className="group relative rounded-2xl shadow-2xl shadow-logo-blue/45 hover:shadow-logo-blue/80 overflow-hidden transition-all duration-600">
         <div className="absolute inset-0 pointer-events-none z-0">
           {isMounted && <Confetti recycle={true} numberOfPieces={100} />}
