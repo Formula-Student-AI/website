@@ -55,7 +55,7 @@ export default function ScrollSection() {
   return (
     <section className="-mb-10">
       {blocks.map((block, i) => (
-        <HeroReveal key={i} image={block.imageSrc}>
+        <HeroReveal key={i} image={block.imageSrc} threshold={0.5}>
           <div className="max-w-4xl mx-auto text-white">
             <h2 className="bg-university-red/60 inline-block rounded-lg px-4 py-2 text-3xl md:text-5xl font-bold">
               {block.heading}
@@ -65,9 +65,9 @@ export default function ScrollSection() {
             </p>
 
             {block.content?.length ? (
-              <div className="mt-10 grid grid-cols-1 md:grid-cols-2 gap-8 justify-items-center">
+              <div className="mt-10 flex flex-col md:flex-row gap-8 justify-center">
                 {block.content.map((item, idx) => (
-                  <div key={idx} className="w-full max-w-sm text-center">
+                  <div key={idx} className="w-full max-w-sm text-center mx-auto">
                     {item.heading ? (
                       <h3 className="text-2xl md:text-3xl font-bold mb-4">
                         {item.heading}
