@@ -8,6 +8,7 @@ export default function TeamCard({
   summary,
   icon,
   onOpen,
+  onHover,
   className = "",
 }: {
   id: string;
@@ -15,12 +16,15 @@ export default function TeamCard({
   summary?: string;
   icon?: React.ReactNode;
   onOpen: (id: string) => void;
+  onHover?: (id: string | null) => void;
   className?: string;
 }) {
   return (
     <div className={["group relative h-full", className].join(" ")}>
       <button
         onClick={() => onOpen(id)}
+        onMouseEnter={() => onHover?.(id)}
+        onMouseLeave={() => onHover?.(null)}
         className={[
           "card-visual relative h-full w-full rounded-2xl border border-gray-200 bg-white shadow-sm",
           "transition-[transform,box-shadow] duration-200 ease-out",

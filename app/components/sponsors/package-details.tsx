@@ -2,7 +2,7 @@
 
 import { useInView } from "@/app/hooks/useInView";
 import Container from "../common/container";
-import Image from "next/image";
+import { GalleryItem } from "./GalleryItem";
 
 export function PackageDetails() {
   const { ref, visible } = useInView<HTMLElement>();
@@ -81,22 +81,13 @@ export function PackageDetails() {
           <div className="mt-12">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {images.map((image, index) => (
-                <div key={index} className="relative group overflow-hidden rounded-lg shadow-lg">
-                  <div className="aspect-[4/3] relative">
-                    <Image
-                      src={image.src}
-                      alt={image.alt || `Gallery image ${index + 1}`}
-                      fill
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                  </div>
-                  {image.caption && (
-                    <div className="absolute bottom-0 left-0 right-0 bg-black/50 text-white p-2 text-sm">
-                      {image.caption}
-                    </div>
-                  )}
-                </div>
+                <GalleryItem
+                  key={index}
+                  src={image.src}
+                  alt={image.alt}
+                  caption={image.caption}
+                  index={index}
+                />
               ))}
             </div>
           </div>
