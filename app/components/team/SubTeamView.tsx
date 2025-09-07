@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useMemo } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
+import React, { useMemo, useState } from "react";
 import type { TeamMember, SubTeamType } from "@/interfaces/team";
 import HeroReveal from "@/app/components/common/HeroReveal";
 import TeamMarkdown from "@/app/components/team/TeamMarkdown";
@@ -12,27 +11,21 @@ export default function SubTeamView({
   bannerImage,
   summary,
   descriptionHtml,
-  members,
+  allMembersByYear,
+  defaultYear,
   yearOptions,
-  selectedYear,
 }: {
   subteamKey: SubTeamType;
   bannerImage?: string;
   summary?: string;
   descriptionHtml: string;
-  members: TeamMember[];
+  allMembersByYear: Record<string, TeamMember[]>;
+  defaultYear: string;
   yearOptions: string[];
-  selectedYear: string;
 }) {
-  const router = useRouter();
-  const sp = useSearchParams();
+  const [year, setYear] = useState(defaultYear);
+  const members = allMembersByYear[year] ?? [];
   const title = useMemo(() => pretty(subteamKey), [subteamKey]);
-
-  const handleYearChange = (year: string) => {
-    const qs = new URLSearchParams(sp.toString());
-    qs.set("year", year);
-    router.push(`?${qs.toString()}`);
-  };
 
   return (
     <main className="bg-white">
@@ -61,9 +54,9 @@ export default function SubTeamView({
 
       <MembersSection
         members={members}
-        selectedYear={selectedYear}
+        selectedYear={year}
         yearOptions={yearOptions}
-        onYearChange={handleYearChange}
+        onYearChange={setYear}
       />
     </main>
   );

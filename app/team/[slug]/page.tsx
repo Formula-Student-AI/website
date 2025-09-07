@@ -2,20 +2,19 @@ import { notFound } from "next/navigation";
 import { getAllTeams, getMembersForSubTeam } from "@/lib/teamApi";
 import { loadSubTeamDocsMap } from "@/lib/subteamApi";
 import markdownToHtml from "@/lib/markdownToHtml";
-import type { SubTeamType } from "@/interfaces/team";
+import type { SubTeamType, TeamMember } from "@/interfaces/team";
 import SubTeamView from "@/app/components/team/SubTeamView";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
-  searchParams: Promise<{ year?: string }>;
 };
 
 export async function generateStaticParams() {
   const docs = loadSubTeamDocsMap();
-  return Array.from(docs.keys()).map((name) => ({ slug: name }));
+  return Array.from(docs.keys()).map((slug) => ({ slug }));
 }
 
-export default async function SubTeamPage({ params, searchParams }: PageProps) {
+export default async function SubTeamPage({ params }: PageProps) {
   const slug = (await params).slug as SubTeamType;
 
   const docs = loadSubTeamDocsMap();
@@ -24,15 +23,15 @@ export default async function SubTeamPage({ params, searchParams }: PageProps) {
 
   const teams = getAllTeams();
   const yearOptions = teams.map((t) => `${t.start_year}-${t.end_year}`);
+  if (!yearOptions.length) return notFound();
 
-  const year = (await searchParams).year;
-  const selectedYear =
-    year && yearOptions.includes(year) ? year : yearOptions[0];
+  const defaultYear = yearOptions[0];
+
+  const allMembersByYear: Record<string, TeamMember[]> = Object.fromEntries(
+    yearOptions.map((year) => [year, getMembersForSubTeam(year, slug)])
+  );
 
   const descriptionHtml = await markdownToHtml(doc.description || "");
-
-  const members = selectedYear ? getMembersForSubTeam(selectedYear, slug) : [];
-  console.log(doc.image);
 
   return (
     <SubTeamView
@@ -40,9 +39,9 @@ export default async function SubTeamPage({ params, searchParams }: PageProps) {
       bannerImage={doc.image}
       summary={doc.summary}
       descriptionHtml={descriptionHtml}
-      members={members}
+      allMembersByYear={allMembersByYear}
+      defaultYear={defaultYear}
       yearOptions={yearOptions}
-      selectedYear={selectedYear ?? ""}
     />
   );
 }
