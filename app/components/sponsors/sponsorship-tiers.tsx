@@ -10,7 +10,6 @@ interface TierFeature {
 
 interface SponsorshipTier {
   name: string;
-  price: string;
   isPremium?: boolean;
   features: TierFeature[];
 }
@@ -21,7 +20,6 @@ export function SponsorshipTiers() {
   const tiers: SponsorshipTier[] = [
     {
       name: "Standard Plan",
-      price: "1000+",
       features: [
         { text: "Logo on website", included: true },
         { text: "Logo on merchandise", included: false },
@@ -34,7 +32,6 @@ export function SponsorshipTiers() {
     },
     {
       name: "Premium Plan",
-      price: "1500+",
       isPremium: true,
       features: [
         { text: "Logo on website", included: true },
@@ -81,19 +78,16 @@ export function SponsorshipTiers() {
                 style={{ animationDelay: `${index * 500}ms` }}
               >
                 <div className="text-center mb-8">
-                  <h3 className={`text-xl font-semibold mb-4 flex items-center justify-center gap-2 ${
-                    tier.isPremium 
-                      ? 'text-white' 
-                      : 'text-gray-900'
-                  }`}>
-                    {tier.name}
-                    {tier.isPremium && (
-                      <span className="text-yellow-300">🏆</span>
-                    )}
-                  </h3>
-                  <div className="text-4xl font-bold">
-                    <span className="text-2xl">£</span>
-                    {tier.price}
+                  <div className="flex flex-col items-center">
+                    <h3 className={`mb-2 text-2xl md:text-3xl font-extrabold tracking-tight ${
+                      tier.isPremium 
+                        ? 'bg-gradient-to-r from-yellow-200 via-white to-yellow-300 text-transparent bg-clip-text' 
+                        : 'bg-gradient-to-r from-gray-900 to-gray-600 text-transparent bg-clip-text'
+                    }`}>
+                      {tier.name}
+                      {tier.isPremium && <span className="ml-2 align-middle">🏆</span>}
+                    </h3>
+                    <span className={`${tier.isPremium ? 'bg-yellow-300/80' : 'bg-gray-400/60'} block h-0.5 w-12 rounded-full`}></span>
                   </div>
                 </div>
                 

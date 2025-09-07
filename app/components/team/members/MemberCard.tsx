@@ -46,7 +46,7 @@ export default function MemberCard({
         ) : null}
 
         {member.email ? (
-          <p className="mt-1 text-sm text-gray-500">{member.email}</p>
+          <p className="mt-1 text-sm text-gray-500 break-words">{member.email}</p>
         ) : null}
 
         {member.links ? (

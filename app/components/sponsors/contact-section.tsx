@@ -57,7 +57,7 @@ export function ContactSection() {
                       href="mailto:bristol.fsai@gmail.com" 
                       className="underline font-bold hover:text-yellow-200 transition-colors"
                     >
-                      bristol.fsai@gmail.com
+                      cs-fsai@bristol.ac.uk
                     </a>
                     {" "}for more information.
                   </p>

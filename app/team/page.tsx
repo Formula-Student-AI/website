@@ -3,6 +3,20 @@ import { getAllTeams, getMembersByYear } from "@/lib/teamApi";
 import SubTeamGrid from "@/app/components/team/SubTeamGrid";
 import MembersSectionClient from "@/app/components/team/members/MembersSectionClient";
 import type { TeamMember } from "@/interfaces/team";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Team | Bristol Formula Student AI",
+  description:
+    "Check out the team from the Bristol Formula Student AI team.",
+  openGraph: {
+    title: "Team | Bristol Formula Student AI",
+    description:
+      "Check out the team from the Bristol Formula Student AI team.",
+    type: "website",
+  },
+};
+
 
 export default async function TeamLandingPage() {
   const subteams = getAllSubTeams();
