@@ -1,6 +1,6 @@
 ---
-name: hardware
-image: /subteams/hardware-hero.png
+name: committee
+image: /subteams/committee_hero.jpg
 summary: "Compute, sensors, power, mounting, reliability, and trackside diagnostics."
 ---
 

@@ -1,6 +1,6 @@
 ---
 name: web_dev
-image: /subteams/web_wdev-hero.jpeg
+image: /subteams/web_dev_hero.png
 summary: "Web presence, dashboards, and internal tools that empower the whole team."
 ---
 

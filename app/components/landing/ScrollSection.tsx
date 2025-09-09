@@ -30,7 +30,7 @@ const blocks: Block[] = [
     ],
   },
   {
-    imageSrc: "/subteams/static-hero.jpg",
+    imageSrc: "/landing/all_fs_teams_2025.jpg",
     imageAlt: "Hero Image 2",
     heading: "2025",
     text: "We took part in the Silverstone FSAI competition for the first time",

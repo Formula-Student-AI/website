@@ -21,7 +21,7 @@ export default function MembersSection({
       <header className="mb-6 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
         <div>
           <p className="text-xs md:text-sm uppercase tracking-widest text-university-red font-semibold">
-            Members
+            Core Team Members
           </p>
           <h2 className="mt-1 text-2xl md:text-3xl font-bold tracking-tight text-gray-900">
             Academic Year {selectedYear}

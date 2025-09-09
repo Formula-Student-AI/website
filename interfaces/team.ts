@@ -1,7 +1,7 @@
 export type SubTeamType =
   | "perception"
   | "planning_and_control"
-  | "hardware"
+  | "committee"
   | "systems_integration"
   | "static_events"
   | "web_dev";
@@ -10,7 +10,6 @@ export interface TeamMember {
   name: string;
   sub_team: SubTeamType;
   role: string;
-  is_committee: boolean;
   email: string;
   image?: string;
   links?: Record<string, string>;
@@ -32,10 +31,10 @@ export interface Team {
 
 /** Ordering helpers */
 export const SUBTEAM_ORDER = [
+  "committee",
   "systems_integration",
   "perception",
   "planning_and_control",
-  "hardware",
   "static_events",
   "web_dev",
 ] as const satisfies readonly SubTeamType[];

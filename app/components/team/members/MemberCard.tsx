@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import type { TeamMember } from "@/interfaces/team";
+import { DEFAULT_AVATAR } from "@/lib/constants";
 
 export default function MemberCard({
   member,
@@ -25,7 +26,7 @@ export default function MemberCard({
     >
       <div className="overflow-hidden rounded-t-2xl flex justify-center items-center p-4">
         <Image
-          src={member.image || "/placeholder-member.jpg"}
+          src={member.image || DEFAULT_AVATAR}
           alt={member.name}
           width={400}
           height={400}

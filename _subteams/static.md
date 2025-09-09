@@ -1,6 +1,6 @@
 ---
 name: static_events
-image: /subteams/static-hero.jpg
+image: /subteams/statics_hero.webp
 summary: "Design presentations for Real World AI, Business Plan and Simulation Development."
 ---
 
