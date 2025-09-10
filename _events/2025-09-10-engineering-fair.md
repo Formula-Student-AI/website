@@ -1,24 +1,16 @@
 ---
-published: false
+published: true
 major_event: true
 cancelled: false
-title: "Spring Innovation Hackathon 2025"
-date: 2026-03-15T09:00:00Z
-date_end: 2026-03-16T18:00:00Z
+title: "Engineering Society Pop Up Fair 2025"
+date: 2025-09-17T10:00:00+01:00
+date_end: 2025-09-17T12:00:00+01:00
 coverImage: "/favicon.png"
-location: "Engineering Building, Room 101"
-event_type: "hackathon"
+location: "Bill Brown Design Suite, Queens Building"
+event_type: "social"
 links:
-  ticket_link: "https://example.com/register/spring-hackathon-2025"
-  google_maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2486.115711638159!2d-2.6056979878141626!3d51.45603191433711!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718dda3d615ea7%3A0xc8073eb4421ac0c4!2sMerchant%20Venturers%20Building!5e0!3m2!1sen!2shk!4v1754925144557!5m2!1sen!2shk"
-description: "A hackathon for Bristol FSAI members"
-cohost:
-  - "Computer Science Society"
-  - "Innovation Lab"
-sponsors:
-  - "TechCorp Inc."
-  - "StartupSpace"
-  - "Developer Tools Co."
+  google_maps: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d621.5155459770878!2d-2.6029466652159337!3d51.45701471695586!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48718df40ed15283%3A0x48ac0603a0b1afc5!2sBill%20Brown%20Design%20Suite!5e0!3m2!1sen!2suk!4v1757515797623!5m2!1sen!2suk"
+description: "Come to join and learn about more Bristol FSAI!"
 ---
 
 Join us for our biggest hackathon of the year! The Spring Innovation Hackathon 2025 brings together students from all disciplines to collaborate, innovate, and build amazing projects over 24 hours.
