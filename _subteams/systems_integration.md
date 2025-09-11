@@ -11,7 +11,7 @@ The **Systems Integration** team ensures that all the sub-systems work together 
 - **ROS architecture:** node graphs, message definitions, topics/services/actions, and launch files.
 - **Middleware & comms:** DDS/ROS2 configs, QoS tuning, real-time comms, and safety interlocks.
 - **Build & CI/CD:** reproducible builds, cross-compilation, containerization, and automated tests.
-- **Simulation integration:** bridge between Gazebo/Carla simulations and real-car deployments.
+- **Simulation integration:** bridge between Gazebo simulations and real-car deployments.
 - **Monitoring & logging:** telemetry streams, bagging, performance metrics, and debugging tools.
 
 ## Practices

@@ -1,7 +1,7 @@
 ---
 name: committee
 image: /subteams/committee_hero.jpg
-summary: "Compute, sensors, power, mounting, reliability, and trackside diagnostics."
+summary: "Oversees strategy, budget, and administration of FSAI."
 ---
 
 The **Hardware** team turns designs into a race-ready, reliable car. We own the compute platform, sensor suite, power delivery, wiring, thermal management, and the mechanical interfaces that let software shine on track.
