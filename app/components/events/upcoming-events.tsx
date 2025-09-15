@@ -42,7 +42,7 @@ export function UpcomingEvents({ events }: Props) {
       <EventTimeline events={filteredEvents} />
 
       {filteredEvents.length === 0 && (
-        <div className="text-center py-12">
+        <div className="text-center py-12 min-h-screen">
           <div className="text-gray-500 text-lg">
             {searchTerm
               ? "No events found matching your search."

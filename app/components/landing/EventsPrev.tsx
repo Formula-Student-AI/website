@@ -7,6 +7,10 @@ export default function EventsPrev() {
   const futureEvents = getAllFutureEvents();
   const majorEvent = futureEvents.find((event: Event) => event.major_event);
 
+  if (!majorEvent) {
+    return <div className="relative mx-auto px-6 pt-16" />;
+  }
+
   return (
     <div className="relative mx-auto px-6 pt-22 pb-16">
       <div className="px-6 md:px-10 lg:px-18 bg-white rounded-2xl">

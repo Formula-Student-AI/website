@@ -1,5 +1,5 @@
 ---
-published: true
+published: false
 major_event: false
 cancelled: false
 title: "React Fundamentals Workshop"

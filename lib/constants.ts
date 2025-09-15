@@ -9,3 +9,5 @@ export const NOTION_HUB_URL = "https://bristol-fsai.notion.site/Bristol-FSAI-Hub
 export const DEFAULT_AVATAR = "/favicon.png";
 
 export const CURRENT_ACADEMIC_YEAR = "2024-2025";
+
+export const DEFAULT_TIMEZONE = "Europe/London";

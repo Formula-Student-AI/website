@@ -1,6 +1,7 @@
 import { Event } from "@/interfaces/event";
 import CoverImage from "@/app/components/common/cover-image";
-import { format, isSameDay } from "date-fns";
+import { isSameDay } from "date-fns";
+import { DEFAULT_TIMEZONE } from "@/lib/constants";
 import { DetailsCard } from "./details-card";
 import { CancelBanner } from "./cancel-banner";
 import { CohostsList } from "./cohosts-list";
@@ -43,12 +44,43 @@ async function LeftColumn({ event }: { event: Event }) {
 }
 
 function RightColumn({ event }: { event: Event }) {
-  const dateLine = format(event.date, "EEEE d LLLL");
+  const dateLine = new Intl.DateTimeFormat("en-GB", {
+    timeZone: DEFAULT_TIMEZONE,
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  }).format(event.date);
   const sameDay = isSameDay(event.date, event.date_end);
-  const tz = format(event.date, "z");
+  const tz = new Intl.DateTimeFormat("en-GB", {
+    timeZone: DEFAULT_TIMEZONE,
+    timeZoneName: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(event.date).split(" ").pop();
+  const startTime = new Intl.DateTimeFormat("en-GB", {
+    timeZone: DEFAULT_TIMEZONE,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(event.date);
+  const endTimeSameDay = new Intl.DateTimeFormat("en-GB", {
+    timeZone: DEFAULT_TIMEZONE,
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(event.date_end);
+  const endDateDifferentDay = new Intl.DateTimeFormat("en-GB", {
+    timeZone: DEFAULT_TIMEZONE,
+    day: "numeric",
+    month: "short",
+    hour: "2-digit",
+    minute: "2-digit",
+    hour12: false,
+  }).format(event.date_end);
   const timeRangeLine = sameDay
-    ? `${format(event.date, "HH:mm")} - ${format(event.date_end, "HH:mm")} ${tz}`
-    : `${format(event.date, "HH:mm")} - ${format(event.date_end, "d MMM 'at' HH:mm")} ${tz}`;
+    ? `${startTime} - ${endTimeSameDay} ${tz}`
+    : `${startTime} - ${endDateDifferentDay} ${tz}`;
 
   return (
     <div className="space-y-6 lg:col-span-4 lg:sticky lg:top-24 lg:h-fit">

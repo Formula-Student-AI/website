@@ -1,6 +1,6 @@
 import { Event } from "@/interfaces/event";
 import Link from "next/link";
-import { format } from "date-fns";
+import { DEFAULT_TIMEZONE } from "@/lib/constants";
 import { IoLocationOutline } from "react-icons/io5";
 import Image from "next/image";
 
@@ -33,7 +33,13 @@ export function EventCard({ event }: Props) {
     <div key={event.slug} className="group relative">
       {/* Time */}
       <div className="text-sm font-medium text-gray-600 bg-white px-2 py-1 rounded mb-2 inline-block">
-        {format(event.date, "z HH:mm")}
+        {new Intl.DateTimeFormat("en-GB", {
+          timeZone: DEFAULT_TIMEZONE,
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+          timeZoneName: "short",
+        }).format(event.date)}
       </div>
 
       {/* Connecting line */}
