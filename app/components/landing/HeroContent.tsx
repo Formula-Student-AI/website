@@ -21,7 +21,7 @@ export default async function HeroContent() {
     <main className="bg-white">
       <HeroRevealSection
         sectionHeightClass="h-[200vh]"
-        imageSrc="/posts/2025-08-04-first-post/silverstone_2025.jpg"
+        imageSrc="/landing/silverstone_2025.jpg"
         imageAlt="Landing Background"
         introTitle={
           <>
