@@ -4,6 +4,14 @@ image: /subteams/systems-hero.jpeg
 summary: "ROS graph, middleware, and the glue that keeps perception, planning, and hardware talking."
 ---
 
+<div style="display: flex; justify-content: center; width: 100%;">
+  <figure style="margin: 0;">
+    <img src="/subteams/systems_integration/adr_schematic.png" alt="ADR Schematic" style="display: block; width: 100%; height: auto;" />
+    <figcaption style="text-align: center; margin-top: 10px;">System Schematic</figcaption>
+  </figure>
+</div>
+<br />
+
 The **Systems Integration** team ensures that all the sub-systems work together as a reliable whole. We design the software architecture, handle middleware, manage builds and deployments, and make sure the car behaves consistently on track.
 
 ## Focus areas
