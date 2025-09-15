@@ -45,12 +45,10 @@ async function LeftColumn({ event }: { event: Event }) {
 function RightColumn({ event }: { event: Event }) {
   const dateLine = format(event.date, "EEEE d LLLL");
   const sameDay = isSameDay(event.date, event.date_end);
+  const tz = format(event.date, "z");
   const timeRangeLine = sameDay
-    ? `${format(event.date, "HH:mm")} - ${format(event.date_end, "HH:mm z")}`
-    : `${format(event.date, "HH:mm")} - ${format(
-        event.date_end,
-        "d MMM 'at' HH:mm z"
-      )}`;
+    ? `${format(event.date, "HH:mm")} - ${format(event.date_end, "HH:mm")} ${tz}`
+    : `${format(event.date, "HH:mm")} - ${format(event.date_end, "d MMM 'at' HH:mm")} ${tz}`;
 
   return (
     <div className="space-y-6 lg:col-span-4 lg:sticky lg:top-24 lg:h-fit">
