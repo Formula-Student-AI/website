@@ -32,3 +32,6 @@ export default function Events() {
     </main>
   );
 }
+
+// Revalidate this page every 60 seconds to keep event status fresh
+export const revalidate = 60;

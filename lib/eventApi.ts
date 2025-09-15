@@ -38,7 +38,6 @@ export function getAllEvents(): Event[] {
 export function getAllFutureEvents(): Event[] {
   const events = getAllEvents();
   return events
-    .filter((event) => event.date > new Date())
+    .filter((event) => event.date_end > new Date())
     .reverse(); // Order by date, closest first
 }
-

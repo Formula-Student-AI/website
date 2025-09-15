@@ -8,6 +8,10 @@ const nextConfig: NextConfig = {
     contentDispositionType: "attachment",
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
   },
+  // Ensure markdown data in `_events` is available to serverless/ISR at runtime
+  outputFileTracingIncludes: {
+    "/**/*": ["_events/**"],
+  },
   async redirects() {
     return [
       {
@@ -16,7 +20,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
     ];
-  }
+  },
 };
 
 export default nextConfig;
