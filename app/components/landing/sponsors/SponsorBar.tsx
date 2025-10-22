@@ -9,6 +9,11 @@ const SPONSORS: Sponsor[] = [
     logo: "/sponsors/uob-logo.svg",
     url: "https://www.bristol.ac.uk/",
   },
+  {
+    name: "About:Energy",
+    logo: "/sponsors/about_energy.webp",
+    url: "https://www.aboutenergy.io/",
+  },
 ];
 
 export default function SponsorBar() {

@@ -6,6 +6,7 @@ import markdownToHtml from "@/lib/markdownToHtml";
 import ScrollSection from "./ScrollSection";
 import EventsPrev from "./EventsPrev";
 import PostsPrev from "./PostsPrev";
+import Image from "next/image";
 
 export default async function HeroContent() {
   const subteams = getAllSubTeams();
@@ -31,13 +32,13 @@ export default async function HeroContent() {
         }
         introSubtitle="Autonomous racing at the University of Bristol"
         overlayTitle={
-          <>
-            Bristol Formula Student{" "}
-            <span className="text-university-red">AI</span>
-          </>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <Image src="/landing/fs_logo.png" alt="Formula Student UK" width={100} height={100} />
+            <span>Formula Student UK</span>
+          </div>
         }
-        overlaySubtitle="Autonomous racing at the University of Bristol"
-      />
+        overlaySubtitle={<span className="text-lg md:text-xl font-semibold rounded-lg bg-red-400/50 p-2 px-4">@ Silverstone 2025</span>}
+      />  
 
       <TeamsSection subteams={subteamsWithHtml} />
 
