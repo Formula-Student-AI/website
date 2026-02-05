@@ -68,15 +68,13 @@ export default function OpportunitiesPage() {
                 </div>
                 <div className="flex items-center justify-between gap-6 text-sm text-gray-600 md:min-w-[260px] md:justify-end">
                   <span>{opportunity.location ?? "Multiple locations"}</span>
-                  <a
-                    href={opportunity.application_form_url ?? "#"}
+                  <Link
+                    href={`/opportunities/${opportunity.slug}`}
                     className="inline-flex items-center gap-2 rounded-full bg-gray-100 px-5 py-2 text-sm font-semibold text-gray-900 transition hover:bg-gray-200"
-                    target="_blank"
-                    rel="noreferrer"
                   >
-                    Apply now
+                    View details
                     <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
