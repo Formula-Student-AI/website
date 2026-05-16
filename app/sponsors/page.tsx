@@ -8,11 +8,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Sponsor us | Bristol Formula Student AI",
   description:
-    "Check out the sponsorship opportunities from the Bristol Formula Student AI team.",
+    "Explore sponsorship opportunities with Bristol Formula Student AI.",
   openGraph: {
     title: "Sponsor us | Bristol Formula Student AI",
     description:
-      "Check out the sponsorship opportunities from the Bristol Formula Student AI team.",
+      "Explore sponsorship opportunities with Bristol Formula Student AI.",
     type: "website",
   },
 };

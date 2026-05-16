@@ -20,7 +20,7 @@ export default function FooterBrand() {
         <Link href="https://www.linkedin.com/company/bristol-fsai/" aria-label="LinkedIn" target="_blank">
           <FaLinkedin className="w-5 h-5 hover:text-black transition-colors" />
         </Link>
-        <Link href="https://github.com/Formula-Student-AI" aria-label="Facebook" target="_blank">
+        <Link href="https://github.com/Formula-Student-AI" aria-label="GitHub" target="_blank">
           <FaGithub className="w-5 h-5 hover:text-black transition-colors" />
         </Link>
       </div>

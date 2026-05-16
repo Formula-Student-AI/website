@@ -2,7 +2,7 @@ import { notFound } from "next/navigation";
 import { getAllTeams, getMembersForSubTeam,  } from "@/lib/teamApi";
 import { loadSubTeamDocsMap } from "@/lib/subteamApi";
 import markdownToHtml from "@/lib/markdownToHtml";
-import type { SubTeamType, TeamMember } from "@/interfaces/team";
+import { type SubTeamType, type TeamMember, prettySubTeam } from "@/interfaces/team";
 import SubTeamView from "@/app/components/team/SubTeamView";
 import { Metadata } from "next";
 import { DEFAULT_AVATAR } from "@/lib/constants";
@@ -25,7 +25,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
     notFound();
   }
 
-  const team_name = pretty(doc.name);
+  const team_name = prettySubTeam(doc.name);
   const title = `${team_name} | Bristol Formula Student AI`;
 
   return {
@@ -71,6 +71,3 @@ export default async function SubTeamPage({ params }: PageProps) {
   );
 }
 
-function pretty(s: string) {
-  return s.replace(/_/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
-}

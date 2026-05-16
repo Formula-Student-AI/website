@@ -1,9 +1,11 @@
 export type SubTeamType =
+  | "apc"
+  | "committee"
   | "perception"
   | "planning_and_control"
-  | "committee"
-  | "systems_integration"
+  | "slam"
   | "static_events"
+  | "systems_integration"
   | "web_dev";
 
 export interface TeamMember {
@@ -31,11 +33,13 @@ export interface Team {
 
 /** Ordering helpers */
 export const SUBTEAM_ORDER = [
+  "apc",
   "committee",
-  "systems_integration",
   "perception",
   "planning_and_control",
+  "slam",
   "static_events",
+  "systems_integration",
   "web_dev",
 ] as const satisfies readonly SubTeamType[];
 
@@ -47,3 +51,19 @@ export const SUBTEAM_ORDER_INDEX: Record<SubTeamType, number> =
 
 export const compareSubTeams = (a: SubTeamType, b: SubTeamType) =>
   SUBTEAM_ORDER_INDEX[a] - SUBTEAM_ORDER_INDEX[b];
+
+/** Display names for subteams that don't follow simple title-case rules */
+const SUBTEAM_DISPLAY_NAMES: Partial<Record<SubTeamType, string>> = {
+  apc: "Autonomous Platform Cup",
+  planning_and_control: "Planning & Control",
+  slam: "SLAM",
+  static_events: "Statics",
+};
+
+/** Convert a SubTeamType key to a human-readable display name */
+export function prettySubTeam(s: string): string {
+  if (SUBTEAM_DISPLAY_NAMES[s as SubTeamType]) {
+    return SUBTEAM_DISPLAY_NAMES[s as SubTeamType]!;
+  }
+  return s.replace(/_/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
+}

@@ -54,7 +54,7 @@ export function ContactSection() {
                   <p className="text-lg mb-4">
                     If you&apos;re interested in working with us, please get in touch with us by emailing{" "}
                     <a 
-                      href="mailto:bristol.fsai@gmail.com" 
+                      href="mailto:cs-fsai@bristol.ac.uk" 
                       className="underline font-bold hover:text-yellow-200 transition-colors"
                     >
                       cs-fsai@bristol.ac.uk
@@ -88,4 +88,3 @@ export function ContactSection() {
     </section>
   );
 }
-

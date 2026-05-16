@@ -6,7 +6,7 @@ import Image from "next/image";
 import TeamCard from "@/app/components/landing/teams/TeamCard";
 import Modal from "@/app/components/landing/Modal";
 import RevealWrapper from "@/app/components/common/RevealWrapper";
-import type { SubTeam } from "@/interfaces/team";
+import { type SubTeam, prettySubTeam } from "@/interfaces/team";
 
 const directions = ["up", "down", "left", "right", "scale"] as const;
 
@@ -81,7 +81,7 @@ export default function TeamsSection({ subteams }: { subteams: SubTeam[] }) {
               <div className="h-full">
                 <TeamCard
                   id={t.name}
-                  title={pretty(t.name)}
+                  title={prettySubTeam(t.name)}
                   summary={t.summary}
                   onOpen={openTeam}
                   onHover={handleHover}
@@ -105,7 +105,7 @@ export default function TeamsSection({ subteams }: { subteams: SubTeam[] }) {
       <Modal
         open={!!active}
         onClose={close}
-        title={pretty(active?.name ?? "")}
+        title={prettySubTeam(active?.name ?? "")}
         widthClass="max-w-3xl"
       >
         <div
@@ -115,8 +115,4 @@ export default function TeamsSection({ subteams }: { subteams: SubTeam[] }) {
       </Modal>
     </section>
   );
-}
-
-function pretty(s: string) {
-  return s.replace(/_/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
 }

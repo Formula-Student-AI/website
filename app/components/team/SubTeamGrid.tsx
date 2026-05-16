@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import RevealWrapper from "@/app/components/common/RevealWrapper";
-import type { SubTeam, SubTeamType } from "@/interfaces/team";
+import { type SubTeam, type SubTeamType, prettySubTeam } from "@/interfaces/team";
 import Image from "next/image";
 
 const directions = ["up", "down", "left", "right", "scale"] as const;
@@ -54,14 +54,14 @@ function SubTeamLinkCard({
           WebkitBackfaceVisibility: "hidden",
           backfaceVisibility: "hidden",
         }}
-        aria-label={`${pretty(subteam.name)} sub-team`}
+        aria-label={`${prettySubTeam(subteam.name)} sub-team`}
       >
         {/* Fixed-height cover to normalize top section */}
         {subteam.image ? (
           <div className="h-36 w-full overflow-hidden rounded-t-2xl shrink-0">
             <Image
               src={subteam.image}
-              alt={`${pretty(subteam.name)} sub-team image`}
+              alt={`${prettySubTeam(subteam.name)} sub-team image`}
               width={500}
               height={500}
               className="h-full w-full object-cover"
@@ -84,7 +84,7 @@ function SubTeamLinkCard({
                 "hover:bg-university-red hover:text-white",
               ].join(" ")}
             >
-              {pretty(subteam.name)}
+              {prettySubTeam(subteam.name)}
             </span>
           </h3>
 
@@ -125,6 +125,3 @@ function SubTeamLinkCard({
   );
 }
 
-function pretty(s: string) {
-  return s.replace(/_/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
-}

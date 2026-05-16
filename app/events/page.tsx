@@ -9,11 +9,11 @@ import { Event } from "@/interfaces/event";
 export const metadata: Metadata = {
   title: "Events | Bristol Formula Student AI",
   description:
-    "Check out the latest events from the Bristol Formula Student AI team.",
+    "Find upcoming Bristol Formula Student AI workshops, fairs, and team events.",
   openGraph: {
     title: "Events | Bristol Formula Student AI",
     description:
-      "Check out the latest events from the Bristol Formula Student AI team.",
+      "Find upcoming Bristol Formula Student AI workshops, fairs, and team events.",
     type: "website",
   },
 };

@@ -8,11 +8,11 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Team | Bristol Formula Student AI",
   description:
-    "Check out the team from the Bristol Formula Student AI team.",
+    "Meet the Bristol Formula Student AI team and explore our subteams by academic year.",
   openGraph: {
     title: "Team | Bristol Formula Student AI",
     description:
-      "Check out the team from the Bristol Formula Student AI team.",
+      "Meet the Bristol Formula Student AI team and explore our subteams by academic year.",
     type: "website",
   },
 };

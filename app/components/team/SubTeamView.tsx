@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import type { TeamMember, SubTeamType } from "@/interfaces/team";
+import { type TeamMember, type SubTeamType, prettySubTeam } from "@/interfaces/team";
 import HeroReveal from "@/app/components/common/HeroReveal";
 import TeamMarkdown from "@/app/components/team/TeamMarkdown";
 import MembersSection from "@/app/components/team/members/MembersSection";
@@ -25,7 +25,7 @@ export default function SubTeamView({
 }) {
   const [year, setYear] = useState(defaultYear);
   const members = allMembersByYear[year] ?? [];
-  const title = useMemo(() => pretty(subteamKey), [subteamKey]);
+  const title = useMemo(() => prettySubTeam(subteamKey), [subteamKey]);
 
   return (
     <main className="bg-white">
@@ -62,6 +62,3 @@ export default function SubTeamView({
   );
 }
 
-function pretty(s: string) {
-  return s.replace(/_/g, " ").replace(/\b\w/g, (m) => m.toUpperCase());
-}
