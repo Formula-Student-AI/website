@@ -55,7 +55,7 @@ export function PackageDetails() {
         <div className="max-w-5xl md:w-[70vw] mx-auto">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight mb-4 relative inline-block">
-              SPONSORSHIP GUIDE 2025
+              SPONSORSHIP GUIDE {new Date().getFullYear()}
               <span 
                 className={`absolute bottom-0 left-0 h-1.5 bg-logo-blue transition-all duration-1000 ease-out ${
                   visible ? 'w-full' : 'w-0'

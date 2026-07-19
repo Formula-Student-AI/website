@@ -67,6 +67,7 @@ export default function HeroReveal({
           fill
           priority
           sizes="100vw"
+          unoptimized={image.toLowerCase().endsWith(".gif")}
           className={[
             "absolute inset-0 z-0 h-full w-full object-cover transform-gpu will-change-[transform,filter]",
             started ? "hero-animate-image" : "",

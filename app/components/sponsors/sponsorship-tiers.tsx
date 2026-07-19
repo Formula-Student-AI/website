@@ -59,7 +59,7 @@ export function SponsorshipTiers() {
         <div className="max-w-6xl mx-auto relative z-10">
           <div className="text-center mb-12">
             <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-tight mb-4 relative inline-block">
-              2025 SPONSORSHIP
+              {new Date().getFullYear()} SPONSORSHIP
               <span 
                 className={`absolute bottom-0 left-0 h-1.5 bg-university-red transition-all duration-1000 ease-out ${visible ? 'w-full' : 'w-0'}`}
               />

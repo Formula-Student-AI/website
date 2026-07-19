@@ -66,6 +66,7 @@ function SubTeamLinkCard({
               height={500}
               className="h-full w-full object-cover"
               loading="lazy"
+              unoptimized={subteam.image.toLowerCase().endsWith(".gif")}
             />
           </div>
         ) : (

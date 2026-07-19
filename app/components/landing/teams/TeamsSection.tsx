@@ -46,6 +46,7 @@ export default function TeamsSection({ subteams }: { subteams: SubTeam[] }) {
                   "will-change-[opacity] select-none pointer-events-none",
                 ].join(" ")}
                 priority={hoveredId === team.name}
+                unoptimized={team.image.toLowerCase().endsWith(".gif")}
               />
             </div>
           ) : null

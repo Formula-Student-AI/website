@@ -14,6 +14,11 @@ const SPONSORS: Sponsor[] = [
     logo: "/sponsors/about_energy.webp",
     url: "https://www.aboutenergy.io/",
   },
+  {
+    name: "Motion Applied",
+    logo: "/sponsors/motion_applied_logo.png",
+    url: "https://www.motionapplied.com/",
+  },
 ];
 
 export default function SponsorBar() {

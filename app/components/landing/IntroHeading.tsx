@@ -4,6 +4,19 @@ import Image from "next/image";
 
 type Props = { title: React.ReactNode; subtitle?: React.ReactNode };
 
+const SPOTLIGHT_SPONSORS = [
+  {
+    name: "About:Energy",
+    logo: "/sponsors/about_energy.webp",
+    tagline: "Powering our battery modelling & simulation",
+  },
+  {
+    name: "Motion Applied",
+    logo: "/sponsors/motion_applied_logo.png",
+    tagline: "Accelerating our vehicle data & analysis",
+  },
+];
+
 export default function IntroHeading({ title, subtitle }: Props) {
   return (
     <div
@@ -18,31 +31,64 @@ export default function IntroHeading({ title, subtitle }: Props) {
       <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight">{title}</h2>
       {subtitle ? <p className="mt-4 text-lg md:text-xl max-w-2xl mx-auto">{subtitle}</p> : null}
 
-      {/* Sponsor spotlight element */}
-      <div className="mt-10 md:mt-20 md:mx-auto my-auto max-w-3xl">
-        <div
-          aria-label="About Energy sponsor spotlight"
-          className="group block overflow-hidden rounded-2xl border hover:shadow-lg transition-shadow duration-300 border-white/10  motion-opacity-in-0 motion-blur-in-md motion-translate-x-in-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50"
-          title="About Energy"
-        >
-          <div className="relative isolate flex w-full flex-col items-center text-center gap-4 p-6 md:p-8">
-            <Image
-              src="/sponsors/about_energy.webp"
-              alt="About Energy logo"
-              className="h-16 md:h-20 w-auto object-contain"
-              width={400}
-              height={400}
-            />
-            <div className="w-full">
-              <span className="inline-flex items-center rounded-full border border-university-red/10 bg-university-red/10 backdrop-blur px-2.5 py-1 text-xs font-medium tracking-wide text-university-red">
-                Sponsor spotlight
-              </span>
-              <h3 className="mt-3 text-lg md:text-xl font-bold text-gray-900">Thank you, About Energy</h3>
-              <p className="mt-1.5 text-sm md:text-base text-gray-700">for being our first industry sponsor.</p>
-            </div>
-          </div>
+      {/* Sponsor spotlight */}
+      <section
+        aria-label="Sponsor spotlight"
+        className="mx-auto mt-10 md:mt-16 max-w-3xl"
+      >
+        <div className="flex items-center justify-center gap-4 motion-opacity-in-0 motion-duration-700">
+          <span
+            aria-hidden
+            className="h-px flex-1 max-w-16 bg-gradient-to-r from-transparent to-university-red/50"
+          />
+          <span className="text-[11px] md:text-xs font-semibold uppercase tracking-[0.3em] text-university-red">
+            Sponsor spotlight
+          </span>
+          <span
+            aria-hidden
+            className="h-px flex-1 max-w-16 bg-gradient-to-l from-transparent to-university-red/50"
+          />
         </div>
-      </div>
+
+        <div className="mt-5 md:mt-7 grid gap-3 md:gap-6 md:grid-cols-2">
+          {SPOTLIGHT_SPONSORS.map((sponsor, i) => (
+            <div
+              key={sponsor.name}
+              className={`group relative overflow-hidden rounded-2xl border border-gray-200/80 bg-white/70 backdrop-blur-sm shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-university-red/30 hover:shadow-xl hover:shadow-university-red/5 motion-opacity-in-0 motion-translate-y-in-25 motion-blur-in-sm ${
+                i > 0 ? "motion-delay-200" : ""
+              }`}
+            >
+              <span
+                aria-hidden
+                className="absolute inset-x-0 top-0 h-0.5 origin-left scale-x-0 bg-university-red transition-transform duration-500 ease-out group-hover:scale-x-100"
+              />
+              <div className="flex items-center gap-5 p-5 text-left md:flex-col md:gap-4 md:p-7 md:text-center">
+                <div className="flex h-12 w-24 shrink-0 items-center justify-center md:h-16 md:w-full">
+                  <Image
+                    src={sponsor.logo}
+                    alt={`${sponsor.name} logo`}
+                    width={400}
+                    height={200}
+                    className="max-h-full max-w-full w-auto object-contain transition-transform duration-300 group-hover:scale-[1.04]"
+                  />
+                </div>
+                <div>
+                  <h3 className="text-base md:text-lg font-bold text-gray-900">
+                    {sponsor.name}
+                  </h3>
+                  <p className="mt-1 text-xs md:text-sm text-gray-600">
+                    {sponsor.tagline}
+                  </p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <p className="mt-5 text-xs md:text-sm text-gray-500 motion-opacity-in-0 motion-delay-300">
+          Thank you to our sponsors for driving Bristol FSAI forward.
+        </p>
+      </section>
     </div>
   );
 }
