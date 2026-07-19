@@ -2,21 +2,17 @@ import HeroRevealSection from "@/app/components/landing/HeroRevealSection";
 import TeamsSection from "./teams/TeamsSection";
 import SponsorBar from "./sponsors/SponsorBar";
 import { getAllSubTeams } from "@/lib/subteamApi";
-import markdownToHtml from "@/lib/markdownToHtml";
 import ScrollSection from "./ScrollSection";
 import EventsPrev from "./EventsPrev";
 import PostsPrev from "./PostsPrev";
 import Image from "next/image";
 
 export default async function HeroContent() {
-  const subteams = getAllSubTeams();
-
-  const subteamsWithHtml = await Promise.all(
-    subteams.map(async (t) => ({
-      ...t,
-      description: await markdownToHtml(t.description || ""),
-    }))
-  );
+  const subteamCards = getAllSubTeams().map(({ name, image, summary }) => ({
+    name,
+    image,
+    summary,
+  }));
 
   return (
     <main className="bg-white">
@@ -40,7 +36,7 @@ export default async function HeroContent() {
         overlaySubtitle={<span className="text-lg md:text-xl font-semibold rounded-lg bg-red-400/50 p-2 px-4">@ Silverstone 2025</span>}
       />  
 
-      <TeamsSection subteams={subteamsWithHtml} />
+      <TeamsSection subteams={subteamCards} />
 
       <SponsorBar />
 
