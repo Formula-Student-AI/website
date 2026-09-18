@@ -18,7 +18,7 @@ export default async function HeroContent() {
     <main className="bg-white">
       <HeroRevealSection
         sectionHeightClass="h-[200vh]"
-        imageSrc="/landing/silverstone_2025.jpg"
+        imageSrc="/landing/silverstone_2026.jpg"
         imageAlt="Landing Background"
         introTitle={
           <>
@@ -33,7 +33,7 @@ export default async function HeroContent() {
             <span>Formula Student UK</span>
           </div>
         }
-        overlaySubtitle={<span className="text-lg md:text-xl font-semibold rounded-lg bg-red-400/50 p-2 px-4">@ Silverstone 2025</span>}
+        overlaySubtitle={<span className="text-lg md:text-xl font-semibold rounded-lg bg-red-400/50 p-2 px-4">@ Silverstone 2026</span>}
       />  
 
       <TeamsSection subteams={subteamCards} />
