@@ -33,7 +33,7 @@ export default async function HeroContent() {
             <span>Formula Student UK</span>
           </div>
         }
-        overlaySubtitle={<span className="text-lg md:text-xl font-semibold rounded-lg bg-red-400/50 p-2 px-4">@ Silverstone 2025</span>}
+        overlaySubtitle={<span className="text-lg md:text-xl font-semibold rounded-lg bg-red-400/50 p-2 px-4">@ Silverstone 2026</span>}
       />  
 
       <TeamsSection subteams={subteamCards} />
