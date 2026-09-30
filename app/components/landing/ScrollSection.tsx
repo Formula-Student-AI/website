@@ -30,6 +30,26 @@ const blocks: Block[] = [
     ],
   },
   {
+    imageSrc: "/landing/working_on_car_2026.jpg",
+    imageAlt: "Hero Image 2",
+    heading: "2026",
+    text: "We returned to Silverstone for our second ever FSAI competition",
+    content: [
+      {
+        imageSrc: "/landing/trackdrive_2026.jpg",
+        imageAlt: "Trackdrive",
+        imageCaption: "Trackdrive",
+        heading: "7th Place",
+      },
+      {
+        imageSrc: "/landing/ddt_system_presentation_2026.jpg",
+        imageAlt: "Dynamic & Static Events",
+        imageCaption: "Dynamic & Static Events",
+        heading: "Overall 19th",
+      },
+    ],
+  },
+  {
     imageSrc: "/landing/all_fs_teams_2025.jpg",
     imageAlt: "Hero Image 2",
     heading: "2025",
