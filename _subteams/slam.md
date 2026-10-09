@@ -1,5 +1,6 @@
 ---
 name: slam
+image: /subteams/map_slam.jpeg
 summary: "Builds simultaneous localisation and mapping systems for real-time autonomous navigation"
 ---
 
