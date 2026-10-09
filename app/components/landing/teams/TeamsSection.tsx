@@ -163,7 +163,7 @@ export default function TeamsSection({ subteams }: { subteams: SubTeamCard[] }) 
                         href={`/team/${t.name}`}
                         className="mt-3 inline-block text-sm font-semibold text-university-red"
                       >
-                        Read the full story →
+                        Learn more →
                       </Link>
                     </div>
                   </div>
@@ -237,7 +237,7 @@ export default function TeamsSection({ subteams }: { subteams: SubTeamCard[] }) 
                       href={`/team/${active.name}`}
                       className="mt-4 inline-flex items-center gap-2 border-b border-white/40 pb-0.5 text-sm font-semibold text-white transition-all hover:gap-3 hover:border-white"
                     >
-                      Full story <span aria-hidden>→</span>
+                      Learn more <span aria-hidden>→</span>
                     </Link>
                   </div>
                 ) : null}

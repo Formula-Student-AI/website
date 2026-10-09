@@ -1,13 +1,14 @@
 ---
 name: apc
+image: /subteams/apc_presentation_26.jpg
 summary: "Builds and integrates an autonomous platform vehicle to compete in the FS-AI Autonomous Platform Cup"
 ---
 
 # APC (Autonomous Platform Cup)
 
-The **APC** team builds and integrates our autonomous platform vehicle for the Formula Student AI **Autonomous Platform Cup** — a competition category where teams design their own driverless vehicles equipped with AI computers, sensors, and low-voltage electric powertrains to compete in FS-AI dynamic events.
+The **APC** team builds and integrates our autonomous platform vehicle for the Formula Student AI **Autonomous Platform Cup**. This is a seperate competition category, **introduced in 2026**, in which teams design their own driverless vehicles equipped with AI computers, sensors, and low-voltage electric powertrains to compete in FS-AI dynamic events.
 
-Unlike the DDT category that retrofits a traditional Formula Student car, our APC entry is purpose-built for autonomous racing from the ground up.
+We entered this category with a design and concept in 2026. In 2027, we will compete in the dynamic events for the first time. 
 
 ---
 

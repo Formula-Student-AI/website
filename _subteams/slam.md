@@ -3,7 +3,7 @@ name: slam
 summary: "Builds simultaneous localisation and mapping systems for real-time autonomous navigation"
 ---
 
-# SLAM
+# DDT: SLAM
 
 The **SLAM** (Simultaneous Localisation and Mapping) team develops the algorithms that allow our autonomous vehicle to understand where it is and build a map of the track in real time. By fusing sensor data from LiDAR, IMU, and odometry, we provide a reliable localisation backbone that the rest of the autonomy stack depends on.
 

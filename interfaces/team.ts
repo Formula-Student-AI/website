@@ -33,8 +33,8 @@ export interface Team {
 
 /** Ordering helpers */
 export const SUBTEAM_ORDER = [
-  "apc",
   "committee",
+  "apc",
   "perception",
   "planning_and_control",
   "slam",
@@ -52,11 +52,12 @@ export const SUBTEAM_ORDER_INDEX: Record<SubTeamType, number> =
 export const compareSubTeams = (a: SubTeamType, b: SubTeamType) =>
   SUBTEAM_ORDER_INDEX[a] - SUBTEAM_ORDER_INDEX[b];
 
-/** Display names for subteams that don't follow simple title-case rules */
+/** Public labels; keep the underlying keys stable for links and member rosters. */
 const SUBTEAM_DISPLAY_NAMES: Partial<Record<SubTeamType, string>> = {
   apc: "Autonomous Platform Cup",
-  planning_and_control: "Planning & Control",
-  slam: "SLAM",
+  perception: "DDT: Perception",
+  planning_and_control: "DDT: Planning & Control",
+  slam: "DDT: SLAM",
   static_events: "Statics",
 };
 
