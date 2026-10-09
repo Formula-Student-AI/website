@@ -18,14 +18,22 @@ type Block = {
 
 const blocks: Block[] = [
   {
-    imageSrc: "/sponsors/bristol_uni.jpg",
-    imageAlt: "Hero Image 1",
-    heading: "2024",
-    text: "The year FSAI was founded by students from the University of Bristol",
+    imageSrc: "/landing/working_on_car_2026.jpg",
+    imageAlt: "Hero Image 2",
+    heading: "2026",
+    text: "We returned to Silverstone for our second ever FSAI competition",
     content: [
       {
-        imageSrc: "/landing/team_photo_2025.jpg",
-        imageCaption: "Team Photo 2025",
+        imageSrc: "/landing/trackdrive_2026.jpg",
+        imageAlt: "Trackdrive",
+        imageCaption: "Trackdrive",
+        heading: "7th Place",
+      },
+      {
+        imageSrc: "/landing/ddt_system_presentation_2026.jpg",
+        imageAlt: "Dynamic & Static Events",
+        imageCaption: "Dynamic & Static Events",
+        heading: "Overall 19th",
       },
     ],
   },
@@ -46,6 +54,18 @@ const blocks: Block[] = [
         imageAlt: "Real World AI Presentation",
         imageCaption: "Real World AI Presentation",
         heading: "Top 3",
+      },
+    ],
+  },
+  {
+    imageSrc: "/sponsors/bristol_uni.jpg",
+    imageAlt: "Hero Image 1",
+    heading: "2024",
+    text: "The year FSAI was founded by students from the University of Bristol",
+    content: [
+      {
+        imageSrc: "/landing/team_photo_2025.jpg",
+        imageCaption: "Team Photo 2025",
       },
     ],
   },
