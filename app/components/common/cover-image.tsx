@@ -13,7 +13,9 @@ const CoverImage = ({ title, src, href: slug }: Props) => {
     <Image
       src={src}
       alt={`Cover Image for ${title}`}
-      className={cn("shadow-sm w-full", {
+      // Added for the portrait cover of the Silverstone 2026 post; this shared
+      // height limit may need adjusting for other post or event images.
+      className={cn("shadow-sm mx-auto h-auto w-auto max-w-full max-h-[40rem] object-contain", {
         "hover:shadow-lg transition-shadow duration-200": slug,
       })}
       width={1300}
