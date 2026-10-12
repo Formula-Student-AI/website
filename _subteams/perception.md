@@ -4,7 +4,7 @@ image: /subteams/perception_hero.jpg
 summary: "Develops real-time vision systems that detect and localize cones using deep learning and stereo cameras"
 ---
 
-# Perception
+# DDT: Perception
 
 > The only path to build intelligent machines is to enable it with powerful visual intelligence, just like what animals did in evolution.
 

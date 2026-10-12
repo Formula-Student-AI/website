@@ -1,6 +1,6 @@
 ---
 name: committee
-image: /subteams/committee_hero.jpg
+image: /subteams/silverstone_museum.jpg
 summary: "Coordinates team direction, finances, partnerships, and day-to-day operations across FSAI."
 ---
 

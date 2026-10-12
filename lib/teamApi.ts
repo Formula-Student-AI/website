@@ -74,7 +74,19 @@ export function getMembersForSubTeam(
 }
 
 export function getTeamMemberByEmail(email: string): TeamMember | undefined {
-  return getFlatMembersForYear(CURRENT_ACADEMIC_YEAR).find(
-    (m) => m.email === email
-  );
+  // Authors remain valid after they leave the current year's roster.
+  const years = [
+    CURRENT_ACADEMIC_YEAR,
+    ...getTeamFilenames()
+      .map((filename) => filename.replace(/\.md$/i, ""))
+      .filter((year) => year !== CURRENT_ACADEMIC_YEAR)
+      .sort((a, b) => b.localeCompare(a)),
+  ];
+
+  for (const year of years) {
+    const member = getFlatMembersForYear(year).find((m) => m.email === email);
+    if (member) return member;
+  }
+
+  return undefined;
 }

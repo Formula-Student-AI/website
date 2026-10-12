@@ -1,10 +1,10 @@
 ---
-name: planning_and_control
+name: 'planning_and_control'
 image: /subteams/planning_control_hero.gif
 summary: "Trajectory generation and vehicle control, from planners to MPC/PID."
 ---
 
-# Planning & Control
+# DDT: Planning & Control
 
 > If Perception is the eyes of the car, Planning & Control is the brain and hands—deciding the path and steering the vehicle safely through the track.
 
