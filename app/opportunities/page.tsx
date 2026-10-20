@@ -29,8 +29,13 @@ export default function OpportunitiesPage() {
             Join us.
           </h1>
           <p className="text-center md:text-justify text-lg mt-5 max-w-3xl text-gray-600">
-            Explore open roles across the team. Apply via the linked Microsoft
-            Form for each opportunity.
+            These forms are primarily intended for applicants who are not currently studying at the
+            University of Bristol.
+          </p>
+          <p className="text-center md:text-justify text-lg mt-5 max-w-3xl text-gray-600">
+            If you study here, the best way to get in touch
+            is to join our WhatsApp group and send us a message, or come
+            along to a DDT session on Thursdays at 6:00pm in MVB 1.15.
           </p>
         </section>
 

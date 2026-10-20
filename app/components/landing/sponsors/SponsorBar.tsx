@@ -19,6 +19,16 @@ const SPONSORS: Sponsor[] = [
     logo: "/sponsors/motion_applied_logo.png",
     url: "https://www.motionapplied.com/",
   },
+  {
+    name: "Harness Design",
+    logo: "/sponsors/harness-design-logo-black.png",
+  },
+  {
+    name: "Quanser",
+    logo: "/sponsors/images.png",
+    cropPadding: true,
+    url: "https://www.quanser.com/",
+  },
 ];
 
 export default function SponsorBar() {

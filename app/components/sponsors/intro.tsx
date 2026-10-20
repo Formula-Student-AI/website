@@ -15,14 +15,18 @@ export function Intro() {
           }`}
         />
       </h1>
-      <h4 className="text-center md:text-justify text-md md:text-lg mt-5 md:pl-8 max-w-3xl">
-        We are a student-led society competing in the
-        Formula Student AI annual championship. We 
-        <b> represent over 150 engineering students from the University
-        of Bristol</b> focused on building the next best AI and
-        robotics systems for the self-driving competition.
-      </h4>
+      <div className="text-center text-md md:text-lg mt-5 max-w-3xl space-y-4">
+        <p>
+          We are a student-led society representing <strong>over 100 engineering students </strong>
+          at the University of Bristol, developing AI and robotics systems for
+          the Formula Student AI competition.
+        </p>
+        <p>
+          We&apos;d love to collaborate with you. Please download our sponsorship
+          brochure below to learn more about the team and how you can support us.
+        </p>
+        <p>Thank you to our sponsors for supporting the team and our work.</p>
+      </div>
     </section>
   );
 }
-  

@@ -30,6 +30,12 @@ const blocks: Block[] = [
         heading: "7th Place",
       },
       {
+        imageSrc: "/landing/apc_design_presentation_2026.jpg",
+        imageAlt: "APC team presenting their autonomous platform design",
+        imageCaption: "Autonomous Platform Cup",
+        heading: "3rd Place",
+      },
+      {
         imageSrc: "/landing/ddt_system_presentation_2026.jpg",
         imageAlt: "Dynamic & Static Events",
         imageCaption: "Dynamic & Static Events",
