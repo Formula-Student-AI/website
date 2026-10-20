@@ -10,7 +10,7 @@ type Props = { title: React.ReactNode; subtitle?: React.ReactNode; sponsors: Spo
 export default function IntroHeading({ title, subtitle, sponsors }: Props) {
   return (
     <div
-      className="absolute top-0 left-0 w-full text-center px-6 pt-12 md:pt-20 z-10 text-gray-900"
+      className="relative w-full text-center px-6 pt-12 md:pt-20 z-10 text-gray-900"
       style={{
         // fades out by ~p=0.5 and slides up
         opacity: `clamp(0, calc(1 - var(--p) * 2), 1)`,
