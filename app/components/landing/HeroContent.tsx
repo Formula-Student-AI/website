@@ -6,6 +6,7 @@ import ScrollSection from "./ScrollSection";
 import EventsPrev from "./EventsPrev";
 import PostsPrev from "./PostsPrev";
 import Image from "next/image";
+import { getAllSponsors } from "@/lib/sponsorApi";
 
 export default async function HeroContent() {
   const subteamCards = getAllSubTeams().map(({ name, image, summary }) => ({
@@ -17,6 +18,7 @@ export default async function HeroContent() {
   return (
     <main className="bg-white">
       <HeroRevealSection
+        sponsors={getAllSponsors().filter((sponsor) => sponsor.spotlight_visible).map(({ name, logo, logo_crop_padding, website_link, spotlight_text }) => ({ name, logo, logo_crop_padding, website_link, spotlight_text }))}
         sectionHeightClass="h-[200vh]"
         imageSrc="/landing/silverstone_2026.jpg"
         imageAlt="Landing Background"

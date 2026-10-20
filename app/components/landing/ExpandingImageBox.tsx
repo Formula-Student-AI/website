@@ -8,6 +8,7 @@ type Props = {
   startHeightVh?: number; // default 20
   startWidthVw?: number; // default 60
   className?: string;
+  followIntro?: boolean;
   children?: React.ReactNode;
 };
 
@@ -17,6 +18,7 @@ export default function ExpandingImageBox({
   startHeightVh = 20,
   startWidthVw = 60,
   className,
+  followIntro = false,
   children,
 }: Props) {
   const growH = 100 - startHeightVh;
@@ -28,9 +30,12 @@ export default function ExpandingImageBox({
         className ?? ""
       }`}
       style={{
-        height: `calc(${startHeightVh}vh + ${growH}vh * var(--p))`,
+        top: followIntro ? "calc((var(--intro-height, 50vh) + 24px) * (1 - var(--p)))" : undefined,
+        height: followIntro
+          ? "calc(100% - (var(--intro-height, 50vh) + 24px) * (1 - var(--p)))"
+          : `calc(${startHeightVh}vh + ${growH}vh * var(--p))`,
         width: `calc(${startWidthVw}vw + ${growW}vw * var(--p))`,
-        transition: "height 0.12s ease-out, width 0.12s ease-out",
+        transition: "top 0.12s ease-out, height 0.12s ease-out, width 0.12s ease-out",
       }}
     >
       <div
