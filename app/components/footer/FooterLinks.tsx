@@ -1,9 +1,9 @@
 import Link from "next/link";
 
 const links = [
-  { href: "/posts", label: "Posts" },
   { href: "/team", label: "Team" },
   { href: "/sponsors", label: "Sponsors" },
+  { href: "/posts", label: "Posts" },
   { href: "/notion-hub", label: "Notion hub" },
 ];
 

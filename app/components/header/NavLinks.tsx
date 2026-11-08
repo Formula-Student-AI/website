@@ -8,10 +8,10 @@ export default function NavLinks({ onClick }: Props) {
   return (
     <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0 text-sm sm:text-base font-medium text-gray-800">
       {[
-        { href: "/posts", label: "Posts" },
         { href: "/team", label: "Team" },
         { href: "/sponsors", label: "Sponsors" },
         { href: "/join", label: "Join us" },
+        { href: "/posts", label: "Posts" },
         { href: "/notion-hub", label: "Notion hub" },
       ].map(({ href, label }) => (
         <Link
