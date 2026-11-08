@@ -2,7 +2,7 @@
 
 import React, { useMemo, useState } from "react";
 import { type TeamMember, type SubTeamType, prettySubTeam } from "@/interfaces/team";
-import HeroReveal from "@/app/components/common/HeroReveal";
+import TeamHero from "@/app/components/team/TeamHero";
 import TeamMarkdown from "@/app/components/team/TeamMarkdown";
 import MembersSection from "@/app/components/team/members/MembersSection";
 
@@ -29,19 +29,7 @@ export default function SubTeamView({
 
   return (
     <main className="bg-white">
-      <HeroReveal image={bannerImage}>
-        <div className="max-w-3xl text-white">
-          <p className="text-xs md:text-sm uppercase tracking-widest text-university-red font-semibold">
-            Team Information
-          </p>
-          <h1 className="mt-3 text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow">
-            {title}
-          </h1>
-          {summary ? (
-            <p className="mt-4 text-base md:text-lg text-gray-200">{summary}</p>
-          ) : null}
-        </div>
-      </HeroReveal>
+      <TeamHero image={bannerImage} title={title} summary={summary} />
 
       <TeamMarkdown html={descriptionHtml} />
 

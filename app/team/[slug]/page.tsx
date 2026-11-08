@@ -11,9 +11,14 @@ type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
+// These teams have their own page (app/team/<slug>/page.tsx), so this route skips them.
+const CUSTOM_PAGES = new Set<string>(["apc"]);
+
 export async function generateStaticParams() {
   const docs = loadSubTeamDocsMap();
-  return Array.from(docs.keys()).map((slug) => ({ slug }));
+  return Array.from(docs.keys())
+    .filter((slug) => !CUSTOM_PAGES.has(slug))
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {

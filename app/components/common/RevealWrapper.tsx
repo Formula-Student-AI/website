@@ -33,7 +33,8 @@ export default function RevealWrapper({
   return (
     <div
       ref={ref}
-      className="opacity-0 will-change-[transform,opacity]"
+      // With reduced motion on, show the content straight away (the ! beats the inline styles).
+      className="opacity-0 will-change-[transform,opacity] motion-reduce:opacity-100! motion-reduce:[transform:none]! motion-reduce:[animation:none]!"
       style={
         visible
           ? ({

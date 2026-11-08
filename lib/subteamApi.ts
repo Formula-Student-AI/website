@@ -10,6 +10,8 @@ const isSubTeamType = (v: unknown): v is SubTeamType =>
   typeof v === "string" &&
   (SUBTEAM_ORDER as readonly string[]).includes(v as string);
 
+// Only files directly inside _subteams/ are read. Moving a team's file into _subteams/archive/
+// takes its page off the site; moving it back restores it.
 const listMarkdownFiles = (dir: string): string[] =>
   fs.existsSync(dir)
     ? fs.readdirSync(dir).filter((f) => f.toLowerCase().endsWith(".md"))

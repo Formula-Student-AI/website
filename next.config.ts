@@ -25,6 +25,12 @@ const nextConfig: NextConfig = {
         destination: "/join",
         permanent: false,
       },
+      // Committee and Web Dev are archived (their pages are in _subteams/archive/).
+      {
+        source: "/team/:slug(committee|web_dev)",
+        destination: "/team",
+        permanent: false,
+      },
     ];
   },
 };

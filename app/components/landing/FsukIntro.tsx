@@ -43,7 +43,7 @@ export default function FsukIntro() {
                   src="/landing/fsuk_cone_course.jpg"
                   alt="A team member checking the ADS-DV on the cone course at Formula Student UK, Silverstone"
                   fill
-                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  sizes="(min-width: 1536px) 720px, (min-width: 1280px) 592px, (min-width: 1024px) 464px, 100vw"
                   className="object-cover"
                 />
               </div>
