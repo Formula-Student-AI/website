@@ -19,6 +19,12 @@ const nextConfig: NextConfig = {
         destination: NOTION_HUB_URL,
         permanent: true,
       },
+      // The old Join Us page and its role pages were replaced by /join.
+      {
+        source: "/opportunities/:path*",
+        destination: "/join",
+        permanent: false,
+      },
     ];
   },
 };
