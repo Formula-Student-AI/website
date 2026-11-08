@@ -22,6 +22,7 @@ const SPONSORS: Sponsor[] = [
   {
     name: "Harness Design",
     logo: "/sponsors/harness-design-logo-black.png",
+    url: "https://www.harness.design/",
   },
   {
     name: "Quanser",
