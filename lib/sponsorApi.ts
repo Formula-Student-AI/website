@@ -28,6 +28,7 @@ export function getAllSponsors(): Sponsor[] {
         name: data.name,
         logo: typeof data.logo === "string" ? data.logo : undefined,
         logo_crop_padding: data.logo_crop_padding === true,
+        strip_logo: typeof data.strip_logo === "string" ? data.strip_logo : undefined,
         tier: data.tier,
         website_link: typeof data.website_link === "string" ? data.website_link : undefined,
         spotlight_text: typeof data.spotlight_text === "string" ? data.spotlight_text : undefined,

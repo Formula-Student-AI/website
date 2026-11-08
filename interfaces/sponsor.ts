@@ -7,6 +7,8 @@ export interface Sponsor {
   name: string;
   logo?: string;
   logo_crop_padding?: boolean;
+  // Optional alternative logo for the homepage logo strip (falls back to `logo`).
+  strip_logo?: string;
   tier?: SponsorTier;
   website_link?: string;
   spotlight_text?: string;

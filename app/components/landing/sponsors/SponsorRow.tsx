@@ -19,7 +19,9 @@ export default function SponsorRow({
   const pad = Math.round(gap / 2);
 
   return (
-    <div className="flex items-center">
+    // Same background as SponsorBar, so logos with a white background blend
+    // into it (mix-blend-multiply) even inside the scrolling marquee.
+    <div className="flex items-center bg-gray-50">
       {sponsors.map((s, i) => {
         const logo = (
           <Image
@@ -28,9 +30,9 @@ export default function SponsorRow({
             width={s.cropPadding ? undefined : 160}
             height={s.cropPadding ? undefined : 80}
             fill={s.cropPadding}
-            className={`${s.cropPadding ? "object-cover" : "h-12 w-auto object-contain"} grayscale hover:grayscale-0 transition duration-300`}
+            className={`${s.cropPadding ? "object-cover" : "h-12 w-auto max-w-60 object-contain"} mix-blend-multiply grayscale hover:grayscale-0 transition duration-300`}
             draggable={false}
-            sizes={s.cropPadding ? "320px" : "(max-width: 768px) 120px, 160px"}
+            sizes={s.cropPadding ? "320px" : "240px"}
           />
         );
         const img = s.cropPadding ? (

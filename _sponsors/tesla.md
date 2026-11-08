@@ -1,6 +1,7 @@
 ---
 name: "Tesla"
 logo: "/sponsors/tesla-logo.svg"
+strip_logo: "/sponsors/tesla-t-logo.svg"
 tier: "Gold"
 spotlight_visible: false
 website_link: "https://www.tesla.com/"
