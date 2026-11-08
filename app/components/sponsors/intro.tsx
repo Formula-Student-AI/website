@@ -1,15 +1,16 @@
 "use client";
 
+import { Download } from "lucide-react";
 import { useInView } from "@/app/hooks/useInView";
 
 export function Intro() {
   const { ref, visible } = useInView<HTMLElement>();
 
   return (
-    <section ref={ref} className="flex-col flex items-center md:justify-between mt-16 mb-20">
+    <section ref={ref} className="flex-col flex items-center md:justify-between mt-16">
       <h1 className="text-5xl md:text-8xl font-bold tracking-tighter leading-tight md:pr-8 relative">
-        Sponsor us.
-        <span 
+        Sponsors.
+        <span
           className={`absolute bottom-0 left-0 h-1.5 bg-university-red transition-all duration-1000 ease-out ${
             visible ? 'w-full' : 'w-0'
           }`}
@@ -27,6 +28,14 @@ export function Intro() {
         </p>
         <p>Thank you to our sponsors for supporting the team and our work.</p>
       </div>
+      <a
+        href="/sponsors/Bristol%20FSAI%20-%20Sponsorship%20Brochure.pdf"
+        download="Bristol FSAI - Sponsorship Brochure.pdf"
+        className="mt-8 inline-flex items-center justify-center gap-3 rounded-lg bg-university-red px-6 py-4 font-semibold text-white transition-opacity hover:opacity-90 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-university-red"
+      >
+        <Download aria-hidden="true" className="h-5 w-5 shrink-0" />
+        Download sponsorship brochure (PDF)
+      </a>
     </section>
   );
 }

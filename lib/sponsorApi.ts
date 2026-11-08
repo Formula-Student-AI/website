@@ -1,10 +1,12 @@
 import fs from "fs";
 import { join } from "path";
 import matter from "gray-matter";
-import type { Sponsor, SponsorTier } from "@/interfaces/sponsor";
+import { SPONSOR_TIERS, type Sponsor, type SponsorTier } from "@/interfaces/sponsor";
 
 const sponsorsDirectory = join(process.cwd(), "_sponsors");
-const tierOrder: Record<SponsorTier, number> = { Gold: 0, Silver: 1, Bronze: 2 };
+// Untiered sponsors sort after every tier.
+const tierRank = (tier?: SponsorTier) =>
+  tier ? SPONSOR_TIERS.indexOf(tier) : SPONSOR_TIERS.length;
 
 export function getAllSponsors(): Sponsor[] {
   return fs.readdirSync(sponsorsDirectory)
@@ -16,9 +18,10 @@ export function getAllSponsors(): Sponsor[] {
       if (typeof data.name !== "string" || !data.name.trim()) {
         throw new Error(`Sponsor ${filename} must have a name.`);
       }
-      if (data.tier !== undefined &&
-          data.tier !== "Gold" && data.tier !== "Silver" && data.tier !== "Bronze") {
-        throw new Error(`Sponsor ${filename} tier must be Gold, Silver or Bronze, or omitted.`);
+      if (data.tier !== undefined && !SPONSOR_TIERS.includes(data.tier)) {
+        throw new Error(
+          `Sponsor ${filename} tier must be Platinum, Gold, Silver or Bronze, or omitted.`
+        );
       }
       return {
         slug: filename.replace(/\.md$/, ""),
@@ -32,8 +35,5 @@ export function getAllSponsors(): Sponsor[] {
         content,
       };
     })
-    .sort((a, b) =>
-      (a.tier ? tierOrder[a.tier] : 3) - (b.tier ? tierOrder[b.tier] : 3) ||
-      a.name.localeCompare(b.name)
-    );
+    .sort((a, b) => tierRank(a.tier) - tierRank(b.tier) || a.name.localeCompare(b.name));
 }

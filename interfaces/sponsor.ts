@@ -1,4 +1,6 @@
-export type SponsorTier = "Gold" | "Silver" | "Bronze";
+// Highest tier first; this order drives sorting and the category sections on /sponsors.
+export const SPONSOR_TIERS = ["Platinum", "Gold", "Silver", "Bronze"] as const;
+export type SponsorTier = (typeof SPONSOR_TIERS)[number];
 
 export interface Sponsor {
   slug: string;

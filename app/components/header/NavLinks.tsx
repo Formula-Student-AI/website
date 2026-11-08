@@ -11,7 +11,7 @@ export default function NavLinks({ onClick }: Props) {
         { href: "/posts", label: "Posts" },
         { href: "/events", label: "Events" },
         { href: "/team", label: "Team" },
-        { href: "/sponsors", label: "Sponsor us" },
+        { href: "/sponsors", label: "Sponsors" },
         { href: "/opportunities", label: "Join us" },
         { href: "/notion-hub", label: "Notion hub" },
       ].map(({ href, label }) => (

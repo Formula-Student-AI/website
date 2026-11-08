@@ -4,7 +4,7 @@ const links = [
   { href: "/posts", label: "Posts" },
   { href: "/events", label: "Events" },
   { href: "/team", label: "Team" },
-  { href: "/sponsors", label: "Sponsor us" },
+  { href: "/sponsors", label: "Sponsors" },
   { href: "/notion-hub", label: "Notion hub" },
 ];
 
