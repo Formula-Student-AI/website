@@ -5,6 +5,6 @@ tier: "Silver"
 website_link: "https://www.aboutenergy.io/"
 ---
 
-About:Energy combines world-class battery testing and simulation expertise to help engineers design better battery systems, faster. Its platform, The Voltt, provides validated models and data for over 400 commercial cells. This helps teams across motorsport, automotive and aerospace cut development time and cost while de-risking their designs.
+About:Energy combines world-class battery testing and simulation expertise to help engineers design better battery systems, faster. Its platform, The Voltt, provides validated models and data for over 400 commercial cells.
 
-As a Silver Sponsor, About:Energy provides us with access to The Voltt. We have already used it for preliminary analysis of our accumulator cells. This season we will build on that work to predict how our battery pack performs as we develop and validate our first car.
+As a Silver Sponsor, About:Energy provides us with access to The Voltt, which we have used to analyse our cells and will use to predict how our battery pack performs.
