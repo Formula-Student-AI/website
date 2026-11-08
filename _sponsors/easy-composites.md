@@ -2,7 +2,6 @@
 name: "Easy Composites"
 logo: "/sponsors/easy-composites-logo.jpg"
 tier: "Bronze"
-spotlight_visible: false
 website_link: "https://www.easycomposites.co.uk/"
 ---
 

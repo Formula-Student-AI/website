@@ -11,7 +11,5 @@ export interface Sponsor {
   strip_logo?: string;
   tier?: SponsorTier;
   website_link?: string;
-  spotlight_text?: string;
-  spotlight_visible: boolean;
   content: string;
 }

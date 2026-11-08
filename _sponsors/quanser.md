@@ -1,7 +1,5 @@
 ---
 name: "Quanser"
-spotlight_visible: true
-spotlight_text: "Helping us to test and learn with a miniature autonomous car"
 logo: "/sponsors/images.png"
 logo_crop_padding: true
 website_link: "https://www.quanser.com/"

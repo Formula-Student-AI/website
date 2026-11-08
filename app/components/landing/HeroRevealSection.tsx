@@ -5,10 +5,8 @@ import { useSectionProgressVar } from "@/app/hooks/useSectionProgressVar";
 import ExpandingImageBox from "@/app/components/landing/ExpandingImageBox";
 import IntroHeading from "@/app/components/landing/IntroHeading";
 import CenteredOverlay from "@/app/components/landing/CenteredOverlay";
-import type { SpotlightSponsor } from "./IntroHeading";
 
 type Props = {
-    sponsors: SpotlightSponsor[];
     sectionHeightClass?: string;
     imageSrc: string;
     imageAlt: string;
@@ -19,7 +17,6 @@ type Props = {
   };
   
   export default function HeroRevealSection({
-    sponsors,
     sectionHeightClass = "h-[200vh]",
     imageSrc,
     imageAlt,
@@ -58,7 +55,7 @@ type Props = {
           style={{ minHeight: "calc(var(--intro-height, 0px) + 224px)" }}
         >
           <div ref={introRef}>
-            <IntroHeading title={introTitle} subtitle={introSubtitle} sponsors={sponsors} />
+            <IntroHeading title={introTitle} subtitle={introSubtitle} />
           </div>
           <ExpandingImageBox imageSrc={imageSrc} imageAlt={imageAlt} followIntro>
             <CenteredOverlay title={overlayTitle} subtitle={overlaySubtitle} />

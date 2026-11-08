@@ -2,7 +2,6 @@
 name: "MathWorks"
 logo: "/sponsors/mathworks-logo.svg"
 tier: "Bronze"
-spotlight_visible: false
 website_link: "https://www.mathworks.com/"
 ---
 

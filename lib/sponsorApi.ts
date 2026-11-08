@@ -31,8 +31,6 @@ export function getAllSponsors(): Sponsor[] {
         strip_logo: typeof data.strip_logo === "string" ? data.strip_logo : undefined,
         tier: data.tier,
         website_link: typeof data.website_link === "string" ? data.website_link : undefined,
-        spotlight_text: typeof data.spotlight_text === "string" ? data.spotlight_text : undefined,
-        spotlight_visible: data.spotlight_visible === true,
         content,
       };
     })
