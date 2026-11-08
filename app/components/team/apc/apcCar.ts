@@ -1,7 +1,7 @@
 import { Cog, Disc3, Wrench, Zap, type LucideIcon } from "lucide-react";
 import { FSAI_TEAMS } from "@/lib/fsaiTeams";
 
-/** The cutaway render of the car, shown as "Fig. 01" on the APC page and on the APC cards. */
+/** The cutaway render of the car, shown at the top of the APC page and on the APC cards. */
 export const APC_CAD = {
   src: "/subteams/apc/apc_cad.jpg",
   alt: "A cutaway render of the autonomous EV our APC team is building",
@@ -23,43 +23,35 @@ export const APC_PARTS = [
 
 export type ApcPart = (typeof APC_PARTS)[number];
 
-/**
- * APC's subteams (the names match the Join us form). "parts" are the numbers in the cutaway;
- * "lead" picks out the subteam's lead from the roles in _teams/.
- */
+/** APC's subteams (the names match the Join us form). "parts" are the numbers in the cutaway. */
 export const APC_SUBTEAMS: {
   name: (typeof FSAI_TEAMS.APC.subteams)[number];
   icon: LucideIcon;
   text: string;
   parts: number[];
-  lead: RegExp;
 }[] = [
   {
     name: "Mechanical Design",
     icon: Wrench,
     text: "Designs the chassis, suspension and steering, and makes sure every part fits together and survives the track.",
     parts: [4, 2],
-    lead: /mechanical/i,
   },
   {
     name: "Powertrains",
     icon: Cog,
     text: "Turns battery power into motion: the motor, its controller and the chain drive to the rear wheels.",
     parts: [6, 7],
-    lead: /powertrain/i,
   },
   {
     name: "Braking Systems",
     icon: Disc3,
     text: "Designs the brakes, including the emergency braking system that brings the car to a safe stop if anything goes wrong.",
     parts: [],
-    lead: /brak/i,
   },
   {
     name: "Electrical Systems",
     icon: Zap,
     text: "Powers and connects the car: the battery, the wiring, and the computer and sensors that let it drive itself.",
     parts: [3, 1, 5],
-    lead: /electrical/i,
   },
 ];

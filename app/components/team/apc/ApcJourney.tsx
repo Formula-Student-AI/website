@@ -22,7 +22,7 @@ export default function ApcJourney({ buildPhoto }: { buildPhoto?: Photo }) {
     {
       when: "2025–26",
       title: "A blank sheet",
-      text: "We designed the car from scratch, from the spaceframe chassis and powertrain to the brakes and electronics.",
+      text: "Preliminary design of the car.",
       image: { src: "/subteams/apc/apc_render.jpg", alt: "A render of the finished APC car" },
     },
     {

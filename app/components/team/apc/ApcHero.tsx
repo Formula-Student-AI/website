@@ -87,9 +87,6 @@ export default function ApcHero({ title, summary }: { title: string; summary: st
               </span>
             ))}
           </div>
-          <figcaption className="mt-4 font-mono text-xs uppercase tracking-[0.2em] text-gray-500">
-            Fig. 01: the car we are building, in cutaway
-          </figcaption>
         </figure>
 
         <ol aria-label="Parts of the car" className="mt-8 grid gap-x-8 gap-y-3 sm:grid-cols-2 lg:grid-cols-4">
