@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { FSAI_TEAMS as TEAMS } from "@/lib/fsaiTeams";
 
 // Web3Forms emails each sign-up to cs-fsai@bristol.ac.uk. The access key only
 // identifies that inbox, so it is safe to keep in the page's code. To get a
@@ -8,20 +9,6 @@ import { useEffect, useRef, useState } from "react";
 const WEB3FORMS_ACCESS_KEY = "9ccd095a-6816-4ab3-bfbb-217914c846a8";
 const CONTACT_EMAIL = "cs-fsai@bristol.ac.uk";
 
-const TEAMS = {
-  APC: {
-    name: "Autonomous Platform Cup",
-    description:
-      "Design and build our first car of our own: a low-voltage autonomous EV.",
-    subteams: ["Mechanical Design", "Powertrains", "Braking Systems", "Electrical Systems"],
-  },
-  DDT: {
-    name: "Dynamic Driving Task",
-    description:
-      "Develop the perception, SLAM and control software that drives the ADS-DV, and present our work to the judges at Silverstone.",
-    subteams: ["Perception", "Planning & Control", "SLAM", "Systems Integration", "Statics"],
-  },
-} as const;
 type TeamKey = keyof typeof TEAMS;
 const TEAM_KEYS = Object.keys(TEAMS) as TeamKey[];
 
