@@ -43,14 +43,7 @@ export default function JoinPage() {
         </div>
       </section>
 
-      <div
-        aria-hidden="true"
-        className="h-2.5"
-        style={{
-          background:
-            "linear-gradient(100deg, var(--university-red) 0 68%, #fff 68% 69.5%, var(--university-red) 69.5% 100%)",
-        }}
-      />
+      <div aria-hidden="true" className="h-2.5 bg-university-red" />
 
       <section className="bg-gray-50 pt-10 pb-16 md:pb-20">
         <div className="mx-auto max-w-xl px-4">
