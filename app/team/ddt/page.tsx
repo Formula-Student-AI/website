@@ -77,7 +77,7 @@ export default function DdtPage() {
         <div className="container mx-auto px-4">
           <SectionTitle id="ddt-in-action">See it in action</SectionTitle>
           <p className="mb-8 max-w-3xl text-lg leading-relaxed text-gray-600">
-            The ADS-DV driving itself round a cone course at Silverstone.
+            Our first ever Trackdrive lap and dynamic event points!
           </p>
           <div className="mx-auto w-full lg:w-[80%]">
             <div className="aspect-video overflow-hidden rounded-2xl bg-black shadow-xl ring-1 ring-gray-900/10">
