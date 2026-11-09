@@ -37,7 +37,7 @@ export default function ApcJourney({ buildPhoto }: { buildPhoto?: Photo }) {
     {
       when: "Now",
       title: "Building it",
-      text: "The design has left the screen. The frame is built, and the team is putting the car together in the workshop.",
+      text: "The design has left the screen: the team is now building the car in the workshop.",
       image: buildPhoto,
     },
     {
@@ -63,30 +63,38 @@ export default function ApcJourney({ buildPhoto }: { buildPhoto?: Photo }) {
           How our first car is coming together.
         </p>
 
-        <ol ref={ref} className="grid md:grid-cols-4">
+        {/* One column (a vertical line) below lg; four columns (a horizontal line) from lg. */}
+        <ol ref={ref} className="grid lg:grid-cols-4">
           {steps.map((step, i) => {
             const reached = i <= CURRENT_STEP;
             const current = i === CURRENT_STEP;
+            // Each step's border is the line to the next step: solid once that step is reached,
+            // dashed while it's still to come, and none after the last step.
+            const lineDone = i < CURRENT_STEP;
             return (
               <li
                 key={step.title}
                 aria-current={current ? "step" : undefined}
-                className={`relative border-l-2 pb-12 pl-8 last:pb-0 md:border-l-0 md:border-t-2 md:pb-0 md:pl-0 md:pr-6 md:pt-10 ${
-                  reached ? "border-university-red" : "border-dashed border-white/25"
+                className={`relative border-l-2 pb-12 pl-8 last:border-transparent last:pb-0 lg:border-l-0 lg:border-t-2 lg:pb-0 lg:pl-0 lg:pr-6 lg:pt-10 ${
+                  lineDone ? "border-university-red" : "border-dashed border-white/25"
                 } ${revealClasses(visible)}`}
                 style={{ transitionDelay: `${i * 150}ms` }}
               >
                 {/* The dot on the line */}
                 <span
                   aria-hidden="true"
-                  className={`absolute -left-[9px] top-1 h-4 w-4 rounded-full md:-top-[9px] md:left-0 ${
+                  className={`absolute -left-[9px] top-1 h-4 w-4 rounded-full lg:-top-[9px] lg:left-0 ${
                     reached
                       ? "bg-university-red ring-4 ring-logo-blue"
                       : "border-2 border-white/40 bg-logo-blue"
                   }`}
                 >
                   {current ? (
-                    <span className="absolute inset-0 animate-ping rounded-full bg-university-red motion-reduce:hidden" />
+                    // Pulses three times, then stops.
+                    <span
+                      className="absolute inset-0 animate-ping rounded-full bg-university-red motion-reduce:hidden"
+                      style={{ animationIterationCount: 3 }}
+                    />
                   ) : null}
                 </span>
 
@@ -102,17 +110,17 @@ export default function ApcJourney({ buildPhoto }: { buildPhoto?: Photo }) {
                 <p className="mt-2 leading-relaxed text-white/75">{step.text}</p>
 
                 {step.image ? (
-                  <div className="relative mt-6 aspect-[4/3] overflow-hidden rounded-xl ring-1 ring-white/10">
+                  <div className="relative mt-6 aspect-[4/3] max-w-md overflow-hidden rounded-xl ring-1 ring-white/10 lg:max-w-none">
                     <Image
                       src={step.image.src}
                       alt={step.image.alt}
                       fill
-                      sizes="(min-width: 1536px) 352px, (min-width: 1280px) 288px, (min-width: 1024px) 224px, (min-width: 768px) 160px, 100vw"
+                      sizes="(min-width: 1536px) 352px, (min-width: 1280px) 288px, (min-width: 1024px) 224px, 448px"
                       className="object-cover"
                     />
                   </div>
                 ) : step.finish ? (
-                  <div className="relative mt-6 flex aspect-[4/3] items-end overflow-hidden rounded-xl ring-1 ring-white/10">
+                  <div className="relative mt-6 flex aspect-[4/3] max-w-md items-end overflow-hidden rounded-xl ring-1 ring-white/10 lg:max-w-none">
                     {/* A chequered flag */}
                     <div
                       aria-hidden="true"
@@ -127,7 +135,7 @@ export default function ApcJourney({ buildPhoto }: { buildPhoto?: Photo }) {
                     </p>
                   </div>
                 ) : (
-                  <div className="relative mt-6 flex aspect-[4/3] flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-dashed border-white/25 text-white/70">
+                  <div className="relative mt-6 flex aspect-[4/3] max-w-md flex-col items-center justify-center gap-3 overflow-hidden rounded-xl border border-dashed border-white/25 text-white/70 lg:max-w-none">
                     <Wrench aria-hidden="true" className="h-8 w-8" />
                     <p className="font-mono text-xs uppercase tracking-[0.2em]">In the workshop</p>
                   </div>

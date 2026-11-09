@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, Pause, Play } from "lucide-react";
 import { useInView } from "@/app/hooks/useInView";
 import { REVEAL_IN_VIEW, revealClasses } from "@/app/components/common/revealClasses";
 import SectionTitle from "@/app/components/team/SectionTitle";
@@ -21,6 +22,52 @@ export type DdtSystem = {
 const imageClass =
   "object-cover transition duration-700 ease-out group-hover:scale-105 motion-reduce:transition-none motion-reduce:group-hover:scale-100";
 
+const SYSTEM_IMAGE_SIZES =
+  "(min-width: 1536px) 488px, (min-width: 1280px) 403px, (min-width: 1024px) 318px, (min-width: 640px) 50vw, 100vw";
+
+/**
+ * A looping animation with a pause button (anything that moves for more than 5 seconds needs a way
+ * to stop it). People who prefer reduced motion get the still frame and no button.
+ */
+function AnimatedImage({ src, still, label }: { src: string; still: string; label: string }) {
+  const [paused, setPaused] = useState(false);
+
+  return (
+    <>
+      {paused ? (
+        <Image src={still} alt="" fill sizes={SYSTEM_IMAGE_SIZES} className={imageClass} />
+      ) : (
+        <picture>
+          <source media="(prefers-reduced-motion: reduce)" srcSet={still} />
+          {/* A plain <img>: the animated WebP is served as-is, not through the image optimiser. */}
+          <img
+            src={src}
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className={`absolute inset-0 h-full w-full ${imageClass}`}
+          />
+        </picture>
+      )}
+      {/* z-10 lifts the button above the card's stretched link, so clicking it doesn't open the page. */}
+      <button
+        type="button"
+        onClick={() => setPaused((p) => !p)}
+        className="absolute right-3 top-3 z-10 inline-flex h-9 w-9 items-center justify-center rounded-full bg-black/60 text-white backdrop-blur-sm transition-colors hover:bg-black/80 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white motion-reduce:hidden"
+      >
+        {paused ? (
+          <Play aria-hidden="true" className="h-4 w-4" />
+        ) : (
+          <Pause aria-hidden="true" className="h-4 w-4" />
+        )}
+        <span className="sr-only">
+          {paused ? `Play the ${label} animation` : `Pause the ${label} animation`}
+        </span>
+      </button>
+    </>
+  );
+}
+
 /** "Our Systems": one card per DDT team, then a card inviting people to join. */
 export default function DdtSystems({ systems }: { systems: DdtSystem[] }) {
   const { ref, visible } = useInView<HTMLDivElement>(REVEAL_IN_VIEW);
@@ -30,8 +77,8 @@ export default function DdtSystems({ systems }: { systems: DdtSystem[] }) {
       <div className="container mx-auto px-4">
         <SectionTitle id="ddt-systems">Our Systems</SectionTitle>
         <p className="mb-10 max-w-3xl text-lg leading-relaxed text-gray-600">
-          DDT is split into {systems.length} teams. Each owns one part of how the ADS-DV drives
-          itself, from spotting the cones to presenting our work to the judges.
+          DDT is split into {systems.length} teams. Each owns one part of the job, from spotting
+          the cones to presenting our work to the judges.
         </p>
 
         <div ref={ref} className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -46,23 +93,13 @@ export default function DdtSystems({ systems }: { systems: DdtSystem[] }) {
               <article className="relative flex h-full flex-col overflow-hidden rounded-2xl bg-logo-blue text-white shadow-lg shadow-logo-blue/20 ring-1 ring-black/5 transition duration-300 group-hover:-translate-y-1 group-hover:shadow-xl has-[a:focus-visible]:ring-2 has-[a:focus-visible]:ring-university-red motion-reduce:transition-none motion-reduce:group-hover:translate-y-0">
                 <div className="relative aspect-[16/10] overflow-hidden bg-black">
                   {system.animated ? (
-                    <picture>
-                      <source media="(prefers-reduced-motion: reduce)" srcSet={system.animated.still} />
-                      {/* A plain <img>: the animated WebP is served as-is, not through the image optimiser. */}
-                      <img
-                        src={system.animated.src}
-                        alt=""
-                        loading="lazy"
-                        decoding="async"
-                        className={`absolute inset-0 h-full w-full ${imageClass}`}
-                      />
-                    </picture>
+                    <AnimatedImage {...system.animated} label={system.name} />
                   ) : system.image ? (
                     <Image
                       src={system.image}
                       alt=""
                       fill
-                      sizes="(min-width: 1536px) 488px, (min-width: 1280px) 403px, (min-width: 1024px) 318px, (min-width: 640px) 50vw, 100vw"
+                      sizes={SYSTEM_IMAGE_SIZES}
                       className={imageClass}
                     />
                   ) : null}

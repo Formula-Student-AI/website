@@ -131,10 +131,10 @@ export default function AboutSection() {
               </span>
             </h2>
             <p className="mt-8 max-w-xl text-lg leading-relaxed text-white/75">
-              Bristol Formula Student AI (FSAI) is the University of Bristol’s autonomous racing
-              team, a student-led society representing over 100 students. Founded in 2024, we made
-              our Silverstone debut the following summer and came back in 2026 to finish 3rd in the
-              new Autonomous Platform Cup.
+              We are a student-led society of over 100 students, building the software and hardware
+              that let a race car drive itself. Founded in 2024, we made our Silverstone debut the
+              following summer and came back in 2026 to finish 3rd in the new Autonomous Platform
+              Cup.
             </p>
           </div>
 

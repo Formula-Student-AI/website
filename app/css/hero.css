@@ -57,4 +57,15 @@
     .hero-animate-text {
         animation: hr-text 765ms cubic-bezier(.22, .61, .36, 1) 440ms forwards;
     }
+
+    /* Reduced motion: jump straight to each animation's end state (the text starts at opacity 0,
+       so the animations must still run, just instantly). */
+    @media (prefers-reduced-motion: reduce) {
+        .hero-animate-image,
+        .hero-animate-overlay,
+        .hero-animate-text {
+            animation-duration: 1ms;
+            animation-delay: 0s;
+        }
+    }
 }

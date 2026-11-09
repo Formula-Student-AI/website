@@ -38,7 +38,7 @@ export default function ApcSubteams() {
                   {parts.length ? (
                     <ul aria-label={`${subteam.name} parts in the drawing`} className="mt-5 space-y-1.5">
                       {parts.map((part) => (
-                        <li key={part.n} className="flex items-center gap-2 text-sm text-gray-700">
+                        <li key={part.n} className="flex items-start gap-2 text-sm text-gray-700">
                           <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-university-red text-[10px] font-bold text-white">
                             {part.n}
                           </span>

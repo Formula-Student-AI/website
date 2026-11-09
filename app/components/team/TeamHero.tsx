@@ -13,9 +13,11 @@ export default function TeamHero({
   eyebrow?: string;
 }) {
   return (
-    <HeroReveal image={image}>
+    // threshold 0: the hero is the first thing on the page, so reveal it as soon as any of it shows
+    // (at high browser zoom it can never be 70% visible, the default).
+    <HeroReveal image={image} threshold={0}>
       <div className="max-w-3xl text-white">
-        <p className="text-xs md:text-sm uppercase tracking-widest text-red-400 font-semibold">
+        <p className="text-xs md:text-sm uppercase tracking-widest text-red-300 font-semibold">
           {eyebrow}
         </p>
         <h1 className="mt-3 text-4xl md:text-6xl font-extrabold tracking-tight drop-shadow">

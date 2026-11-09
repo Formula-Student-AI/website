@@ -33,7 +33,7 @@ export const APC_SUBTEAMS: {
   {
     name: "Mechanical Design",
     icon: Wrench,
-    text: "Designs the chassis, suspension and steering, and makes sure every part fits together and survives the track.",
+    text: "Integrates the chassis and designs the suspension and steering, making sure every part fits together and survives the track.",
     parts: [4, 2],
   },
   {

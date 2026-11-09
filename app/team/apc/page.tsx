@@ -43,7 +43,8 @@ export default function ApcPage() {
       <ApcSubteams />
       <ApcJourney buildPhoto={buildPhoto} />
       {years.length ? (
-        <div className="pt-16">
+        // Line the shared members section up with the APC sections above (it is narrower by default).
+        <div className="container mx-auto px-4 pt-16 [&>section]:max-w-none [&>section]:px-0">
           <MembersSectionClient
             allMembersByYear={allMembersByYear}
             defaultYear={years[0]}
