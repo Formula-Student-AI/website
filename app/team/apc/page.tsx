@@ -16,7 +16,7 @@ const SUMMARY =
 // The photo for "Building it". It appears once this file exists in public/ (on the next deploy).
 const BUILD_PHOTO = {
   src: "/subteams/apc/apc_build.jpg",
-  alt: "APC team members at the lathe beside the car’s red tube frame",
+  alt: "The car’s tube-frame chassis on its wheels in the workshop",
 };
 
 export const metadata: Metadata = {
