@@ -1,6 +1,6 @@
 "use client";
 
-import { Download, Eye } from "lucide-react";
+import { Eye } from "lucide-react";
 import { useInView } from "@/app/hooks/useInView";
 
 const BROCHURE = "/sponsors/Bristol%20FSAI%20-%20Sponsorship%20Brochure.pdf";
@@ -41,17 +41,6 @@ export function Intro() {
         View our sponsorship brochure
         <span className="sr-only">(PDF, opens in a new tab)</span>
       </a>
-      <p className="mt-3 text-center text-sm text-gray-600">
-        Opens right in your browser, no download needed. Want your own copy?{" "}
-        <a
-          href={BROCHURE}
-          download="Bristol FSAI - Sponsorship Brochure.pdf"
-          className="inline-flex items-center gap-1 font-medium text-university-red underline underline-offset-2 hover:no-underline"
-        >
-          <Download aria-hidden="true" className="h-3.5 w-3.5 shrink-0" />
-          Download the PDF
-        </a>
-      </p>
     </section>
   );
 }
