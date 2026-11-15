@@ -10,7 +10,7 @@ export type SubTeamType =
 
 export interface TeamMember {
   name: string;
-  sub_team: SubTeamType;
+  sub_team: SubTeamType | SubTeamType[] | "";
   role: string;
   email: string;
   image?: string;
