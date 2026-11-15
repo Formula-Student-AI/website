@@ -21,7 +21,6 @@ export default async function TeamLandingPage() {
   const teams = getAllTeams();
   const yearOptions = teams.map((t) => `${t.start_year}-${t.end_year}`);
 
-  // Build-time: read every year's members once
   const allMembersByYear: Record<string, TeamMember[]> = Object.fromEntries(
     yearOptions.map((year) => [year, getMembersByYear(year)]),
   );

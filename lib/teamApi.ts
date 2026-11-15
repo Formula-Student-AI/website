@@ -60,9 +60,20 @@ export function getAllTeams(): Team[] {
     .sort((a, b) => b.start_year - a.start_year);
 }
 
+// President/project leads, committee and team leads together, then other members.
+function memberGroup(member: TeamMember): number {
+  if (/\bpresident\b|\bproject (lead|manager)\b/i.test(member.role)) return 0;
+  const teams = Array.isArray(member.sub_team) ? member.sub_team : [member.sub_team];
+  if (teams.includes("committee") || /\b(treasurer|secretary|social sec)\b|business.*sponsorship/i.test(member.role)) return 1;
+  if (/\blead\b/i.test(member.role)) return 1;
+  return 2;
+}
+
 /** members by year slug (e.g. "2024-2025") **/
 export function getMembersByYear(slug: string): TeamMember[] {
-  return getFlatMembersForYear(slug);
+  return getFlatMembersForYear(slug).sort((a, b) =>
+    memberGroup(a) - memberGroup(b) || Number(Boolean(b.image)) - Number(Boolean(a.image))
+  );
 }
 
 /** members by year slug + subteam **/
@@ -70,7 +81,14 @@ export function getMembersForSubTeam(
   slug: string,
   subteam: SubTeamType
 ): TeamMember[] {
-  return getFlatMembersForYear(slug).filter((m) => m.sub_team === subteam);
+  return getMembersByYear(slug)
+    .filter((member) =>
+      Array.isArray(member.sub_team)
+        ? member.sub_team.includes(subteam)
+        : member.sub_team === subteam
+    )
+    // Keep leads ahead of members, even when a lead has no photo.
+    .sort((a, b) => Number(/\blead\b/i.test(b.role)) - Number(/\blead\b/i.test(a.role)));
 }
 
 export function getTeamMemberByEmail(email: string): TeamMember | undefined {
